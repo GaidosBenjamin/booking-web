@@ -18,7 +18,7 @@ export default function VerifyEmailPage() {
   const [resendCooldown, setResendCooldown] = useState(0);
 
   const email = (location.state as { email?: string })?.email || '';
-  const orgSlug = (location.state as { organizationSlug?: string })?.organizationSlug || import.meta.env.VITE_ORG_SLUG || 'bbso';
+  const orgSlug = (location.state as { organizationSlug?: string })?.organizationSlug || (import.meta.env.VITE_ORG_SLUG as string);
   const maskedEmail = email ? email.replace(/(.{2}).+(@.+)/, '$1***$2') : '';
 
   useEffect(() => {

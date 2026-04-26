@@ -2,7 +2,7 @@ import axios from 'axios';
 import { getTokens, setTokens, clearTokens } from '../store/auth';
 import type { LoginResponse } from '../types/auth';
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL as string;
 
 const apiClient = axios.create({
   baseURL: API_BASE_URL,

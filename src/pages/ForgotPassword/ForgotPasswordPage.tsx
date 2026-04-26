@@ -16,7 +16,7 @@ export default function ForgotPasswordPage() {
   const { showToast } = useToast();
   const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
-  const orgSlug = import.meta.env.VITE_ORG_SLUG || 'bbso';
+  const orgSlug = import.meta.env.VITE_ORG_SLUG as string;
 
   const forgotSchema = z.object({ email: z.string().email(t('forgotPassword.errors.emailInvalid')) });
   type ForgotForm = z.infer<typeof forgotSchema>;

@@ -16,7 +16,7 @@ export default function RegisterPage() {
   const { showToast } = useToast();
   const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
-  const orgSlug = import.meta.env.VITE_ORG_SLUG || 'bbso';
+  const orgSlug = import.meta.env.VITE_ORG_SLUG as string;
 
   const registerSchema = z
     .object({

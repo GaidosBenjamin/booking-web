@@ -19,7 +19,7 @@ export default function ResetPasswordPage() {
   const [showPw, setShowPw] = useState(false);
 
   const email = (location.state as { email?: string })?.email || '';
-  const orgSlug = import.meta.env.VITE_ORG_SLUG || 'bbso';
+  const orgSlug = import.meta.env.VITE_ORG_SLUG as string;
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

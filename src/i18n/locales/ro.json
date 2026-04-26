@@ -1,0 +1,260 @@
+{
+  "common": {
+    "appName": "BBSO Kids Camp 2026",
+    "copyright": "© {{year}} BBSO Kids Camp. Toate drepturile rezervate.",
+    "privacyPolicy": "Politică de Confidențialitate",
+    "termsOfService": "Termeni și Condiții",
+    "contactUs": "Contactați-ne",
+    "back": "Înapoi",
+    "logout": "Deconectare",
+    "loading": "Se încarcă...",
+    "save": "Salvează",
+    "remove": "Șterge",
+    "cancel": "Anulează"
+  },
+  "language": {
+    "en": "English",
+    "ro": "Română"
+  },
+  "login": {
+    "title": "Să găsim aventura ta",
+    "subtitle": "Experimentează liniștea naturii cu programe de vară selecționate pentru familia ta.",
+    "email": "Adresă de Email",
+    "emailPlaceholder": "salut@aventura.com",
+    "password": "Parolă",
+    "passwordPlaceholder": "••••••••",
+    "loginButton": "Conectare",
+    "registerButton": "Înregistrare",
+    "forgotPassword": "Ai uitat parola?",
+    "errors": {
+      "invalidCredentials": "Email sau parolă incorectă",
+      "verifyEmail": "Te rugăm să îți verifici emailul mai întâi",
+      "generic": "Ceva a mers greșit. Te rugăm să încerci din nou."
+    }
+  },
+  "register": {
+    "title": "Înregistrare",
+    "quote": "\"Cea mai bună sală de clasă este cea fără pereți.\"",
+    "firstName": "Prenume",
+    "firstNamePlaceholder": "ex. Andrei",
+    "lastName": "Nume de Familie",
+    "lastNamePlaceholder": "ex. Popescu",
+    "email": "Adresă de Email",
+    "emailPlaceholder": "andrei@exemplu.com",
+    "phone": "Număr de Telefon",
+    "phonePlaceholder": "0712 345 678",
+    "password": "Parolă",
+    "passwordPlaceholder": "••••••••",
+    "confirmPassword": "Confirmă Parola",
+    "confirmPasswordPlaceholder": "••••••••",
+    "createAccount": "Creează Cont",
+    "alreadyHaveAccount": "Ai deja un cont?",
+    "loginLink": "Conectează-te",
+    "errors": {
+      "emailExists": "Acest email este deja înregistrat. Vrei să te conectezi?",
+      "generic": "Ceva a mers greșit. Te rugăm să încerci din nou.",
+      "firstNameRequired": "Prenumele este obligatoriu",
+      "lastNameRequired": "Numele de familie este obligatoriu",
+      "emailInvalid": "Te rugăm să introduci un email valid",
+      "phoneRequired": "Numărul de telefon este obligatoriu",
+      "passwordMin": "Parola trebuie să aibă cel puțin 6 caractere",
+      "passwordMismatch": "Parolele nu coincid",
+      "confirmRequired": "Te rugăm să confirmi parola"
+    }
+  },
+  "verifyEmail": {
+    "title": "Verifică-ți Emailul",
+    "subtitle": "Am trimis un cod de verificare din 6 cifre la <strong>{{email}}</strong>. Te rugăm să îl introduci mai jos pentru a finaliza înregistrarea.",
+    "codeLabel": "Cod din 6 Cifre",
+    "codePlaceholder": "000000",
+    "verifyButton": "Verifică și Continuă",
+    "resendText": "Nu ai primit codul?",
+    "resendLink": "Retrimite Codul",
+    "resendCooldown": "Retrimite în {{seconds}}s",
+    "toasts": {
+      "success": "Email verificat cu succes! Te rugăm să te conectezi.",
+      "invalidCode": "Cod de verificare invalid. Te rugăm să încerci din nou.",
+      "resendSuccess": "Codul de verificare a fost retrimis!",
+      "resendFailed": "Nu s-a putut retrimite codul. Te rugăm să încerci din nou."
+    }
+  },
+  "forgotPassword": {
+    "title": "Ai uitat parola?",
+    "subtitle": "Introdu adresa ta de email și îți vom trimite un cod de resetare.",
+    "email": "Adresă de Email",
+    "emailPlaceholder": "emailul@tau.com",
+    "sendButton": "Trimite Codul de Resetare",
+    "rememberPassword": "Îți amintești parola?",
+    "loginLink": "Conectează-te",
+    "errors": {
+      "emailInvalid": "Te rugăm să introduci un email valid",
+      "generic": "Ceva a mers greșit. Te rugăm să încerci din nou."
+    }
+  },
+  "resetPassword": {
+    "title": "Resetează Parola",
+    "subtitle": "Introdu codul din 6 cifre trimis la emailul tău și alege o parolă nouă.",
+    "codeLabel": "Cod de Verificare",
+    "newPassword": "Parolă Nouă",
+    "newPasswordPlaceholder": "Introdu parola nouă",
+    "confirmPassword": "Confirmă Parola Nouă",
+    "confirmPasswordPlaceholder": "Confirmă parola nouă",
+    "resetButton": "Resetează Parola",
+    "toasts": {
+      "mismatch": "Parolele nu coincid",
+      "success": "Parola a fost resetată cu succes!",
+      "failed": "Nu s-a putut reseta parola."
+    }
+  },
+  "coc": {
+    "badge": "Promisiunea Comunității Noastre",
+    "acceptButton": "Accept și sunt de Acord",
+    "toasts": {
+      "failed": "Nu s-a putut accepta. Te rugăm să încerci din nou."
+    }
+  },
+  "campers": {
+    "title": "Lista Participanților",
+    "headline": "Listează toți copiii care participă.",
+    "subtitle": "Adaugă detalii individuale pentru fiecare participant pentru a le asigura cea mai bună experiență de vară.",
+    "age": "Vârsta {{age}}",
+    "newCamper": "Participant Nou",
+    "addAnother": "Adaugă Alt Participant",
+    "noCampers": "Niciun participant încă.",
+    "addFirst": "Adaugă Primul Participant",
+    "proceedCheckout": "Continuă la Plată",
+    "selectRoomFirst": "Selectează mai întâi un loc pentru toți participanții.",
+    "form": {
+      "firstName": "Prenume",
+      "lastName": "Nume de Familie",
+      "dateOfBirth": "Data Nașterii",
+      "grade": "Clasă",
+      "gradePlaceholder": "Selectează Clasa",
+      "gradeOptions": {
+        "1": "Clasa I",
+        "2": "Clasa a II-a",
+        "3": "Clasa a III-a",
+        "4": "Clasa a IV-a",
+        "5": "Clasa a V-a",
+        "6": "Clasa a VI-a"
+      },
+      "gender": "Gen",
+      "boy": "Băiat",
+      "girl": "Fată",
+      "specialRequirements": "Cerințe Speciale / Alergii (Opțional)",
+      "specialRequirementsPlaceholder": "Ex. Alergie la nuci, astm, etc."
+    },
+    "room": {
+      "pickRoom": "Alege Camera",
+      "noRoom": "Nicio cameră selectată",
+      "noRoomsAvailable": "Nicio cameră disponibilă pentru vârstă/gen",
+      "changeRoom": "Schimbă Camera",
+      "reservedFor": "Rezervat Pentru"
+    },
+    "toasts": {
+      "added": "Participant adăugat!",
+      "addFailed": "Nu s-a putut adăuga participantul.",
+      "updated": "Participant actualizat!",
+      "updateFailed": "Nu s-a putut actualiza participantul.",
+      "removed": "Participant eliminat.",
+      "removeFailed": "Nu s-a putut elimina participantul.",
+      "fillRequired": "Te rugăm să completezi toate câmpurile obligatorii."
+    }
+  },
+  "buildingSelection": {
+    "badge": "Selecție Clădire",
+    "headline": "Alege cea mai bună experiență pentru {{name}}.",
+    "selectingFor": "Selectare pentru {{name}}",
+    "recommended": "Recomandat",
+    "memberRate": "Tarif Membru",
+    "perWeek": "/{{currency}} /SĂPTĂMÂNĂ",
+    "full": "Ocupat",
+    "continueButton": "Continuă"
+  },
+  "roomSelection": {
+    "headline": "Alege Camera pentru {{name}}",
+    "pickingFor": "Alege un Pat pentru {{name}}",
+    "available": "{{available}} din {{capacity}} paturi disponibile",
+    "full": "Complet",
+    "reservedFor": "Camera rezervată pentru",
+    "leadersRoom": "Camera Liderilor",
+    "roommates": "Colegi de Cameră",
+    "noRoommates": "Niciun coleg încă. Fii primul!",
+    "selectButton": "Selectează Camera",
+    "toasts": {
+      "selected": "Camera selectată!",
+      "failed": "Nu s-a putut rezerva camera. Te rugăm să încerci din nou."
+    }
+  },
+  "checkout": {
+    "title": "Revizuire Rezervare",
+    "expired": "Rezervarea ta a expirat. Te rugăm să o iei de la capăt.",
+    "familySummary": "Rezumat Familie",
+    "camperCount_one": "{{count}} Participant",
+    "camperCount_other": "{{count}} Participanți",
+    "roomAssigned": "Cameră atribuită",
+    "reservedFor": "Rezervat Pentru",
+    "subtotal": "Subtotal",
+    "memberDiscount": "Reducere Membri Aplicată",
+    "grandTotal": "Total",
+    "paymentMethod": "Metodă de Plată",
+    "payWithStripe": "Plătește cu Stripe",
+    "stripeSubtitle": "Portal de plată securizat și criptat",
+    "stripeDisclaimer": "Vei fi redirecționat către Stripe pentru a finaliza tranzacția în siguranță.",
+    "cancelBooking": "Anulează rezervarea",
+    "toasts": {
+      "createFailed": "Nu s-a putut crea rezervarea.",
+      "cancelSuccess": "Rezervare anulată.",
+      "cancelFailed": "Nu s-a putut anula rezervarea."
+    }
+  },
+  "bookingSuccess": {
+    "title": "Rezervare Confirmată!",
+    "subtitle": "Participantul tău este pregătit pentru o vară de neuitat la BBSO Kids Camp.",
+    "orderId": "ID Comandă",
+    "totalPaid": "Total Plătit",
+    "emailConfirmation": "Un email de confirmare a fost trimis la {{email}}.",
+    "viewRoster": "Vezi Lista Mea",
+    "backHome": "Înapoi la Pagina Principală"
+  },
+  "bookingFailed": {
+    "title": "Plată Nereușită",
+    "subtitle": "Nu am putut procesa plata ta. Nu-ți face griji, selecțiile tale sunt rezervate încă <strong>10 minute</strong>.",
+    "reasonTitle": "Tranzacție refuzată de bancă",
+    "reasonBody": "Te rugăm să verifici detaliile cardului, să te asiguri că ai fonduri suficiente sau să încerci o altă metodă de plată.",
+    "tryAgain": "Încearcă Din Nou",
+    "contactSupport": "Contactează Suportul",
+    "toasts": {
+      "retryFailed": "Nu s-a putut reîncerca. Te rugăm să încerci din nou."
+    }
+  },
+  "status": {
+    "NEEDS_BED": "Necesită Pat",
+    "NEEDS_PAYMENT": "Necesită Plată",
+    "PAYMENT_SUCCESS": "Confirmat",
+    "PAYMENT_FAILED": "Plată Eșuată"
+  },
+  "privacyPolicy": {
+    "title": "Politică de Confidențialitate",
+    "lastUpdated": "Ultima actualizare: {{date}}",
+    "section1Title": "1. Informațiile pe Care le Colectăm",
+    "section1Body": "Colectăm informațiile pe care ni le furnizați direct atunci când rezervați un loc la tabără, inclusiv nume, informații de contact și cerințe speciale pentru participanți.",
+    "section2Title": "2. Cum Folosim Informațiile",
+    "section2Body": "Folosim informațiile colectate pentru a furniza, menține și îmbunătăți serviciile noastre, pentru a procesa tranzacțiile și pentru a comunica cu dumneavoastră despre rezervarea dvs.",
+    "section3Title": "3. Partajarea Informațiilor",
+    "section3Body": "Nu partajăm informațiile dvs. personale cu terțe părți, cu excepția cazurilor necesare pentru furnizarea serviciilor noastre sau dacă este impus de lege."
+  },
+  "termsOfService": {
+    "title": "Termeni și Condiții",
+    "lastUpdated": "Ultima actualizare: {{date}}",
+    "section1Title": "1. Acceptarea Termenilor",
+    "section1Body": "Prin accesarea și utilizarea serviciului nostru de rezervări, acceptați și sunteți de acord să respectați termenii și prevederile acestui acord.",
+    "section2Title": "2. Rezervări și Plăți",
+    "section2Body": "Toate rezervările sunt supuse disponibilității și confirmării. Plățile trebuie finalizate pentru a garanta rezervarea dvs."
+  },
+  "contact": {
+    "title": "Contactați-ne",
+    "emailLabel": "Email",
+    "phoneLabel": "Telefon"
+  }
+}

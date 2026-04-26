@@ -1,0 +1,260 @@
+{
+  "common": {
+    "appName": "BBSO Kids Camp 2026",
+    "copyright": "© {{year}} BBSO Kids Camp. All Rights Reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "contactUs": "Contact Us",
+    "back": "Go back",
+    "logout": "Logout",
+    "loading": "Loading...",
+    "save": "Save Details",
+    "remove": "Remove",
+    "cancel": "Cancel"
+  },
+  "language": {
+    "en": "English",
+    "ro": "Română"
+  },
+  "login": {
+    "title": "Let's find your adventure",
+    "subtitle": "Experience the tranquility of nature with curated summer programs for your family.",
+    "email": "Email Address",
+    "emailPlaceholder": "hello@adventure.com",
+    "password": "Password",
+    "passwordPlaceholder": "••••••••",
+    "loginButton": "Login",
+    "registerButton": "Register",
+    "forgotPassword": "Forgot your password?",
+    "errors": {
+      "invalidCredentials": "Invalid email or password",
+      "verifyEmail": "Please verify your email first",
+      "generic": "Something went wrong. Please try again."
+    }
+  },
+  "register": {
+    "title": "Register",
+    "quote": "\"The best classroom is the one without walls.\"",
+    "firstName": "First Name",
+    "firstNamePlaceholder": "e.g. Julian",
+    "lastName": "Last Name",
+    "lastNamePlaceholder": "e.g. Thorne",
+    "email": "Email Address",
+    "emailPlaceholder": "julian@example.com",
+    "phone": "Phone Number",
+    "phonePlaceholder": "0412 345 678",
+    "password": "Password",
+    "passwordPlaceholder": "••••••••",
+    "confirmPassword": "Confirm Password",
+    "confirmPasswordPlaceholder": "••••••••",
+    "createAccount": "Create Account",
+    "alreadyHaveAccount": "Already have an account?",
+    "loginLink": "Log in",
+    "errors": {
+      "emailExists": "This email is already registered. Sign in instead?",
+      "generic": "Something went wrong. Please try again.",
+      "firstNameRequired": "First name is required",
+      "lastNameRequired": "Last name is required",
+      "emailInvalid": "Please enter a valid email",
+      "phoneRequired": "Phone number is required",
+      "passwordMin": "Password must be at least 6 characters",
+      "passwordMismatch": "Passwords do not match",
+      "confirmRequired": "Please confirm your password"
+    }
+  },
+  "verifyEmail": {
+    "title": "Verify Your Email",
+    "subtitle": "We've sent a 6-digit verification code to <strong>{{email}}</strong>. Please enter it below to complete your registration.",
+    "codeLabel": "6-Digit Code",
+    "codePlaceholder": "000000",
+    "verifyButton": "Verify & Continue",
+    "resendText": "Didn't receive the code?",
+    "resendLink": "Resend Code",
+    "resendCooldown": "Resend in {{seconds}}s",
+    "toasts": {
+      "success": "Email verified successfully! Please log in.",
+      "invalidCode": "Invalid verification code. Please try again.",
+      "resendSuccess": "Verification code resent!",
+      "resendFailed": "Failed to resend code. Please try again."
+    }
+  },
+  "forgotPassword": {
+    "title": "Forgot Password?",
+    "subtitle": "Enter your email address and we'll send you a reset code.",
+    "email": "Email Address",
+    "emailPlaceholder": "your@email.com",
+    "sendButton": "Send Reset Code",
+    "rememberPassword": "Remember your password?",
+    "loginLink": "Log in",
+    "errors": {
+      "emailInvalid": "Please enter a valid email",
+      "generic": "Something went wrong. Please try again."
+    }
+  },
+  "resetPassword": {
+    "title": "Reset Your Password",
+    "subtitle": "Enter the 6-digit code sent to your email and choose a new password.",
+    "codeLabel": "Verification Code",
+    "newPassword": "New Password",
+    "newPasswordPlaceholder": "Enter new password",
+    "confirmPassword": "Confirm New Password",
+    "confirmPasswordPlaceholder": "Confirm new password",
+    "resetButton": "Reset Password",
+    "toasts": {
+      "mismatch": "Passwords do not match",
+      "success": "Password reset successfully!",
+      "failed": "Failed to reset password."
+    }
+  },
+  "coc": {
+    "badge": "Our Community Promise",
+    "acceptButton": "I Accept & Agree",
+    "toasts": {
+      "failed": "Failed to accept. Please try again."
+    }
+  },
+  "campers": {
+    "title": "Camper Roster",
+    "headline": "List all children attending.",
+    "subtitle": "Add individual details for each camper to ensure they get the best summer experience.",
+    "age": "Age {{age}}",
+    "newCamper": "New Camper",
+    "addAnother": "Add Another Camper",
+    "noCampers": "No campers yet.",
+    "addFirst": "Add Your First Camper",
+    "proceedCheckout": "Proceed to Checkout",
+    "selectRoomFirst": "Select a room for all campers first.",
+    "form": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "dateOfBirth": "Date of Birth",
+      "grade": "Grade",
+      "gradePlaceholder": "Select Grade",
+      "gradeOptions": {
+        "1": "1st Grade",
+        "2": "2nd Grade",
+        "3": "3rd Grade",
+        "4": "4th Grade",
+        "5": "5th Grade",
+        "6": "6th Grade"
+      },
+      "gender": "Gender",
+      "boy": "Boy",
+      "girl": "Girl",
+      "specialRequirements": "Special Requirements / Allergies (Optional)",
+      "specialRequirementsPlaceholder": "E.g. Peanut allergy, asthma, etc."
+    },
+    "room": {
+      "pickRoom": "Pick Room",
+      "noRoom": "No room selected yet",
+      "noRoomsAvailable": "No rooms available for age/gender",
+      "changeRoom": "Change Room",
+      "reservedFor": "Reserved For"
+    },
+    "toasts": {
+      "added": "Camper added!",
+      "addFailed": "Failed to add camper.",
+      "updated": "Camper updated!",
+      "updateFailed": "Failed to update camper.",
+      "removed": "Camper removed.",
+      "removeFailed": "Failed to remove camper.",
+      "fillRequired": "Please fill in all required fields."
+    }
+  },
+  "buildingSelection": {
+    "badge": "Building Selection",
+    "headline": "Choose the best camp experience for {{name}}.",
+    "selectingFor": "Selecting for {{name}}",
+    "recommended": "Recommended",
+    "memberRate": "Member Rate",
+    "perWeek": "/{{currency}} /WEEK",
+    "full": "Full",
+    "continueButton": "Continue"
+  },
+  "roomSelection": {
+    "headline": "Choose {{name}}'s Cabin Room",
+    "pickingFor": "Picking a Bed for {{name}}",
+    "available": "{{available}} of {{capacity}} beds available",
+    "full": "Full",
+    "reservedFor": "Room reserved for",
+    "leadersRoom": "Leaders Room",
+    "roommates": "Current Roommates",
+    "noRoommates": "No roommates yet. Be the first!",
+    "selectButton": "Select Room",
+    "toasts": {
+      "selected": "Room selected!",
+      "failed": "Failed to hold room. Please try again."
+    }
+  },
+  "checkout": {
+    "title": "Review Booking",
+    "expired": "Your reservation has expired. Please start over.",
+    "familySummary": "Family Summary",
+    "camperCount_one": "{{count}} Camper",
+    "camperCount_other": "{{count}} Campers",
+    "roomAssigned": "Room assigned",
+    "reservedFor": "Reserved For",
+    "subtotal": "Subtotal",
+    "memberDiscount": "Member Discount Applied",
+    "grandTotal": "Grand Total",
+    "paymentMethod": "Payment Method",
+    "payWithStripe": "Pay with Stripe",
+    "stripeSubtitle": "Secure, encrypted payment portal",
+    "stripeDisclaimer": "You will be redirected to Stripe to securely complete your transaction.",
+    "cancelBooking": "Cancel booking",
+    "toasts": {
+      "createFailed": "Failed to create booking.",
+      "cancelSuccess": "Booking cancelled.",
+      "cancelFailed": "Failed to cancel booking."
+    }
+  },
+  "bookingSuccess": {
+    "title": "Booking Confirmed!",
+    "subtitle": "Your camper is all set for an unforgettable summer at BBSO Kids Camp.",
+    "orderId": "Order ID",
+    "totalPaid": "Total Paid",
+    "emailConfirmation": "A confirmation email has been sent to {{email}}.",
+    "viewRoster": "View My Roster",
+    "backHome": "Back to Home"
+  },
+  "bookingFailed": {
+    "title": "Payment Unsuccessful",
+    "subtitle": "We couldn't process your payment. Don't worry, your selections are still reserved for <strong>10 minutes</strong>.",
+    "reasonTitle": "Transaction declined by bank",
+    "reasonBody": "Please check your card details, ensure sufficient funds, or try a different payment method.",
+    "tryAgain": "Try Again",
+    "contactSupport": "Contact Support",
+    "toasts": {
+      "retryFailed": "Failed to retry. Please try again."
+    }
+  },
+  "status": {
+    "NEEDS_BED": "Needs Bed",
+    "NEEDS_PAYMENT": "Needs Payment",
+    "PAYMENT_SUCCESS": "Confirmed",
+    "PAYMENT_FAILED": "Payment Failed"
+  },
+  "privacyPolicy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: {{date}}",
+    "section1Title": "1. Information We Collect",
+    "section1Body": "We collect information that you provide directly to us when booking a camp spot, including names, contact information, and special requirements for campers.",
+    "section2Title": "2. How We Use Information",
+    "section2Body": "We use the information we collect to provide, maintain, and improve our services, to process transactions, and to communicate with you about your booking.",
+    "section3Title": "3. Information Sharing",
+    "section3Body": "We do not share your personal information with third parties except as necessary to provide our services or as required by law."
+  },
+  "termsOfService": {
+    "title": "Terms of Service",
+    "lastUpdated": "Last updated: {{date}}",
+    "section1Title": "1. Acceptance of Terms",
+    "section1Body": "By accessing and using our booking service, you accept and agree to be bound by the terms and provision of this agreement.",
+    "section2Title": "2. Booking and Payments",
+    "section2Body": "All bookings are subject to availability and confirmation. Payments must be completed to secure your reservation."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone"
+  }
+}

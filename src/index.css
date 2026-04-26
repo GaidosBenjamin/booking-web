@@ -1,0 +1,175 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Color Tokens ── */
+  --color-primary: #003a63;
+  --color-primary-container: #005288;
+  --color-primary-fixed: #d0e4ff;
+  --color-primary-fixed-dim: #9ccaff;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #91c5ff;
+  --color-on-primary-fixed: #001d35;
+  --color-on-primary-fixed-variant: #00497b;
+  --color-inverse-primary: #9ccaff;
+
+  --color-secondary: #006a6a;
+  --color-secondary-container: #90efef;
+  --color-secondary-fixed: #93f2f2;
+  --color-secondary-fixed-dim: #76d6d5;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #006e6e;
+  --color-on-secondary-fixed: #002020;
+  --color-on-secondary-fixed-variant: #004f4f;
+
+  --color-tertiary: #00403b;
+  --color-tertiary-container: #005953;
+  --color-tertiary-fixed: #8ef4e9;
+  --color-tertiary-fixed-dim: #71d7cd;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #6bd2c7;
+  --color-on-tertiary-fixed: #00201d;
+  --color-on-tertiary-fixed-variant: #00504a;
+
+  --color-surface: #f7f9fb;
+  --color-surface-dim: #d8dadc;
+  --color-surface-bright: #f7f9fb;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f2f4f6;
+  --color-surface-container: #eceef0;
+  --color-surface-container-high: #e6e8ea;
+  --color-surface-container-highest: #e0e3e5;
+  --color-surface-variant: #e0e3e5;
+  --color-surface-tint: #206298;
+  --color-on-surface: #191c1e;
+  --color-on-surface-variant: #41474f;
+  --color-inverse-surface: #2d3133;
+  --color-inverse-on-surface: #eff1f3;
+
+  --color-outline: #727780;
+  --color-outline-variant: #c1c7d1;
+
+  --color-background: #f7f9fb;
+  --color-on-background: #191c1e;
+
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #93000a;
+
+  /* ── Border Radius ── */
+  --radius-DEFAULT: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-xxl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* ── Font Families ── */
+  --font-headline: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Be Vietnam Pro', sans-serif;
+  --font-label: 'Plus Jakarta Sans', sans-serif;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+
+  /* ── Shadows ── */
+  --shadow-card: 0 12px 32px rgba(25, 28, 30, 0.06);
+}
+
+/* ── Material Symbols config ── */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* ── Glass Panel (for nav bars, sticky CTAs) ── */
+.glass-panel {
+  background-color: rgba(247, 249, 251, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ── Progress Gradient (tertiary → secondary) ── */
+.progress-gradient {
+  background: linear-gradient(90deg, #00403b 0%, #006a6a 100%);
+}
+
+/* ── Ghost Border (for inputs) ── */
+.ghost-border {
+  border: 1px solid rgba(193, 199, 209, 0.2);
+}
+
+/* ── Ambient Shadow ── */
+.ambient-shadow {
+  box-shadow: 0 12px 32px rgba(25, 28, 30, 0.06);
+}
+
+/* ── Hero Mesh Background ── */
+.bg-hero-mesh {
+  background-color: #f7f9fb;
+  background-image: radial-gradient(at 0% 0%, rgba(0, 58, 99, 0.05) 0px, transparent 50%),
+                    radial-gradient(at 100% 0%, rgba(0, 106, 106, 0.08) 0px, transparent 50%);
+}
+
+/* ── Base Body Styles ── */
+body {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  background-color: #f7f9fb;
+  color: #191c1e;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Selection highlight ── */
+::selection {
+  background-color: #90efef;
+  color: #006e6e;
+}
+
+/* ── Smooth scrolling ── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Toast slide-in animation ── */
+@keyframes toast-slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes toast-slide-out {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.toast-enter {
+  animation: toast-slide-in 0.3s ease-out forwards;
+}
+
+.toast-exit {
+  animation: toast-slide-out 0.3s ease-in forwards;
+}
+
+/* ── Checkmark scale-in animation (for success screen) ── */
+@keyframes scale-in {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-scale-in {
+  animation: scale-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}

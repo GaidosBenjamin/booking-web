@@ -57,9 +57,8 @@ export default function BuildingSelectionPage() {
 
         {isLoading ? <SkeletonList count={3} /> : (
           <div className="space-y-6">
-            {buildings?.map((building, i) => {
+            {buildings?.map((building) => {
               const isSelected = selectedId === building.id;
-              const price = user?.member && building.tier.memberDiscount ? building.tier.discountPrice : building.tier.basePrice;
               return (
                 <div key={building.id} onClick={() => { if (!building.isFull) setSelectedId(building.id); }}
                   className={`group relative bg-surface-container-lowest rounded-[1.5rem] overflow-hidden ambient-shadow transition-all duration-300 ${building.isFull ? 'opacity-60 cursor-not-allowed grayscale-[30%]' : 'hover:translate-y-[-4px] active:scale-[0.98] cursor-pointer'} ${isSelected ? 'ring-4 ring-primary shadow-xl translate-y-[-4px]' : ''}`}>

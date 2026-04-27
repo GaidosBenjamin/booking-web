@@ -17,8 +17,8 @@
     "ro": "Română"
   },
   "login": {
-    "title": "Să găsim aventura ta",
-    "subtitle": "Experimentează liniștea naturii cu programe de vară selecționate pentru familia ta.",
+    "title": "O temelie solidă pentru copilul tău",
+    "subtitle": "Oferă-i o vară plină de aventură, prietenii noi și creștere spirituală într-un mediu creștin sigur.",
     "email": "Adresă de Email",
     "emailPlaceholder": "salut@aventura.com",
     "password": "Parolă",
@@ -34,7 +34,7 @@
   },
   "register": {
     "title": "Înregistrare",
-    "quote": "\"Cea mai bună sală de clasă este cea fără pereți.\"",
+    "quote": "\"Tabăra este locul unde prietenii devin familie, iar credința devine o temelie.\"",
     "firstName": "Prenume",
     "firstNamePlaceholder": "ex. Andrei",
     "lastName": "Nume de Familie",
@@ -166,7 +166,7 @@
     "headline": "Alege cea mai bună experiență pentru {{name}}.",
     "selectingFor": "Selectare pentru {{name}}",
     "recommended": "Recomandat",
-    "memberRate": "Tarif Membru",
+    "memberRate": "Reducere Membru",
     "perWeek": "/{{currency}} /SĂPTĂMÂNĂ",
     "full": "Ocupat",
     "continueButton": "Continuă"
@@ -184,7 +184,12 @@
     "toasts": {
       "selected": "Camera selectată!",
       "failed": "Nu s-a putut rezerva camera. Te rugăm să încerci din nou."
-    }
+    },
+    "quotes": [
+      "Camerele sunt alocate în funcție de disponibilitate.",
+      "Copilul tău își va iubi colegii de cameră!",
+      "Primul venit, primul servit."
+    ]
   },
   "checkout": {
     "title": "Revizuire Rezervare",
@@ -195,7 +200,7 @@
     "roomAssigned": "Cameră atribuită",
     "reservedFor": "Rezervat Pentru",
     "subtotal": "Subtotal",
-    "memberDiscount": "Reducere Membri Aplicată",
+    "memberDiscount": "Reducere Membru Aplicată",
     "grandTotal": "Total",
     "paymentMethod": "Metodă de Plată",
     "payWithStripe": "Plătește cu Stripe",

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router';
 import { useQuery, useMutation } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
@@ -19,10 +19,12 @@ export default function CheckoutPage() {
   const [booking, setBooking] = useState<Awaited<ReturnType<typeof getBookings>>[0] | null>(null);
   const [expired, setExpired] = useState(false);
   const [initializing, setInitializing] = useState(true);
+  const initRef = useRef(false);
 
   // On mount: check for existing PENDING booking or create new one
   useEffect(() => {
-    if (!campers || !initializing) return;
+    if (!campers || !initializing || initRef.current) return;
+    initRef.current = true;
     (async () => {
       try {
         const existing = await getBookings();
@@ -48,6 +50,7 @@ export default function CheckoutPage() {
   });
 
   const subtotal = booking?.items.reduce((sum, i) => sum + i.price, 0) || 0;
+  const baseSubtotal = booking?.items.reduce((sum, i) => sum + i.tier.basePrice, 0) || 0;
 
   if (initializing) {
     return (
@@ -84,10 +87,10 @@ export default function CheckoutPage() {
               {t(`checkout.camperCount`, { count: booking?.items.length || 0 })}
             </span>
           </div>
-          {booking?.items.map(item => {
-            const camper = campers?.find(c => c.id === item.camperId);
+          {booking?.items.map((item, idx) => {
+            const camper = item.camper;
             return (
-              <div key={item.camperId} className="bg-surface-container-lowest p-5 rounded-2xl shadow-sm border border-surface-variant/50">
+              <div key={`${item.camper.id}-${idx}`} className="bg-surface-container-lowest p-5 rounded-2xl shadow-sm border border-surface-variant/50">
                 <div className="flex justify-between items-start">
                   <div>
                     <h3 className="font-headline font-bold text-lg text-on-surface">{camper?.firstName} {camper?.lastName}</h3>
@@ -99,12 +102,34 @@ export default function CheckoutPage() {
                       {item.holdExpiresAt && new Date(item.holdExpiresAt).getTime() > Date.now() && (
                         <p className="text-xs text-secondary font-medium flex items-center gap-1">
                           <span className="material-symbols-outlined text-[14px]">timer</span>
-                          {t('checkout.reservedFor')} <Countdown expiresAt={new Date(item.holdExpiresAt).toISOString()} onExpired={() => setExpired(true)} />
+                          {t('checkout.reservedFor')} <Countdown 
+                            expiresAt={new Date(item.holdExpiresAt).toISOString()} 
+                            onExpired={() => {
+                              setExpired(true);
+                              showToast(t('checkout.expired'), 'error');
+                              cancelMut.mutate();
+                            }} 
+                          />
                         </p>
                       )}
                     </div>
                   </div>
-                  <span className="font-headline font-bold text-primary text-lg">${item.price.toFixed(2)}</span>
+                  <div className="text-right">
+                    {user?.member && item.tier.basePrice > item.price ? (
+                      <>
+                        <span className="block text-xs text-outline line-through leading-none mb-1.5 font-bold opacity-60">
+                          {item.tier.basePrice.toFixed(0)} {booking?.currency}
+                        </span>
+                        <span className="block font-headline font-bold text-primary text-xl leading-none">
+                          {item.price.toFixed(0)} {booking?.currency}
+                        </span>
+                      </>
+                    ) : (
+                      <span className="font-headline font-bold text-primary text-xl">
+                        {item.price.toFixed(0)} {booking?.currency}
+                      </span>
+                    )}
+                  </div>
                 </div>
               </div>
             );
@@ -114,9 +139,22 @@ export default function CheckoutPage() {
         {/* Price Breakdown */}
         <section className="mt-8 bg-surface-container-low rounded-2xl p-6 border border-surface-variant/20">
           <div className="space-y-4">
-            <div className="flex justify-between text-sm text-on-surface-variant">
+            <div className="flex justify-between items-center text-sm text-on-surface-variant">
               <span>{t('checkout.subtotal')}</span>
-              <span className="font-medium">${subtotal.toFixed(2)}</span>
+              <div className="text-right">
+                {user?.member && baseSubtotal > subtotal ? (
+                  <>
+                    <span className="block text-xs text-outline line-through opacity-60 font-bold leading-none mb-1">
+                      {baseSubtotal.toFixed(0)} {booking?.currency}
+                    </span>
+                    <span className="font-bold text-primary">
+                      {subtotal.toFixed(0)} {booking?.currency}
+                    </span>
+                  </>
+                ) : (
+                  <span className="font-medium">{subtotal.toFixed(0)} {booking?.currency}</span>
+                )}
+              </div>
             </div>
             {user?.member && (
               <div className="flex justify-between text-sm text-secondary">
@@ -127,7 +165,7 @@ export default function CheckoutPage() {
             )}
             <div className="pt-4 mt-2 border-t border-outline-variant/30 flex justify-between items-center">
               <span className="font-headline font-bold text-lg text-on-surface">{t('checkout.grandTotal')}</span>
-              <span className="font-headline font-extrabold text-2xl text-primary">${(booking?.amountTotal || subtotal).toFixed(2)}</span>
+              <span className="font-headline font-extrabold text-2xl text-primary">{(booking?.amountTotal || subtotal).toFixed(0)} {booking?.currency}</span>
             </div>
           </div>
         </section>

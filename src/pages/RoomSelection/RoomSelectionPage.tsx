@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import { useNavigate, useParams, useLocation } from 'react-router';
+import { useTranslation } from 'react-i18next';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { getRooms, getHolds, createHold } from '../../api/rooms';
 import { getCampers } from '../../api/campers';
@@ -20,16 +21,13 @@ function getAge(dob: string): number {
   return a;
 }
 
-const funQuotes = [
-  'Rooms are assigned by availability.',
-  'Your camper will love their bunkmates!',
-  'First come, first served.',
-];
+
 
 export default function RoomSelectionPage() {
   const { camperId } = useParams<{ camperId: string }>();
   const navigate = useNavigate();
   const location = useLocation();
+  const { t } = useTranslation();
   const { showToast } = useToast();
   const queryClient = useQueryClient();
   const [selectedRoomId, setSelectedRoomId] = useState<string | null>(null);
@@ -48,7 +46,8 @@ export default function RoomSelectionPage() {
   const { data: holds } = useQuery({ queryKey: ['holds'], queryFn: getHolds });
   const existingHold = holds?.find(h => h.camperId === camperId);
 
-  const quote = useMemo(() => funQuotes[Math.floor(Math.random() * funQuotes.length)], []);
+  const quotes = t('roomSelection.quotes', { returnObjects: true }) as string[];
+  const quote = useMemo(() => quotes[Math.floor(Math.random() * quotes.length)], [quotes]);
 
   const holdMut = useMutation({
     mutationFn: (roomId: string) => createHold(roomId, { camperId: camperId! }),
@@ -59,19 +58,19 @@ export default function RoomSelectionPage() {
       } catch (e) { console.error(e); }
       queryClient.invalidateQueries({ queryKey: ['holds'] });
       queryClient.invalidateQueries({ queryKey: ['campers'] });
-      showToast('Room selected!');
+      showToast(t('roomSelection.toasts.selected'));
       navigate('/campers');
     },
-    onError: () => showToast('Failed to hold room. Please try again.', 'error'),
+    onError: () => showToast(t('roomSelection.toasts.failed'), 'error'),
   });
 
   return (
     <div className="min-h-screen bg-background pb-32">
-      <AppHeader title={`Picking a Bed for ${camper?.firstName || '...'}`} />
-      <main className="pt-20 px-6 max-w-md mx-auto">
+      <AppHeader title={t('roomSelection.pickingFor', { name: camper?.firstName || '...' })} />
+      <main className="pt-20 px-6 max-w-2xl mx-auto">
         <div className="mb-8">
           <h2 className="text-3xl font-extrabold text-primary leading-tight tracking-tight mb-3 font-headline">
-            Choose {camper?.firstName}'s Cabin Room
+            {t('roomSelection.headline', { name: camper?.firstName || '...' })}
           </h2>
           <p className="text-on-surface-variant font-medium text-sm">{quote}</p>
           {buildingName && <p className="text-secondary text-xs font-bold mt-1 uppercase tracking-wide">{buildingName}</p>}
@@ -81,7 +80,7 @@ export default function RoomSelectionPage() {
           <div className="bg-tertiary-container/30 rounded-xl p-4 mb-8 flex items-center gap-3">
             <span className="material-symbols-outlined text-on-tertiary-container" style={{ fontVariationSettings: "'FILL' 1" }}>schedule</span>
             <div>
-              <p className="text-on-tertiary-container text-xs font-bold">Room reserved for <Countdown expiresAt={existingHold.expiresAt} /></p>
+              <p className="text-on-tertiary-container text-xs font-bold">{t('roomSelection.reservedFor')} <Countdown expiresAt={existingHold.expiresAt} /></p>
             </div>
           </div>
         )}
@@ -97,47 +96,53 @@ export default function RoomSelectionPage() {
               const occupants = [...assignments, ...holds];
               return (
                 <div key={room.id} onClick={() => !isFull && setSelectedRoomId(room.id)}
-                  className={`bg-surface-container-lowest rounded-xl overflow-hidden shadow-card transition-all ${isFull ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'} ${isSelected ? 'ring-2 ring-secondary ring-offset-2' : ''}`}>
-                  <div className="h-48 w-full relative">
+                  className={`group relative bg-surface-container-lowest rounded-[1.5rem] overflow-hidden ambient-shadow transition-all duration-300 ${isFull ? 'opacity-60 cursor-not-allowed grayscale-[30%]' : 'hover:translate-y-[-4px] active:scale-[0.98] cursor-pointer'} ${isSelected ? 'ring-4 ring-primary shadow-xl translate-y-[-4px]' : ''}`}>
+                  <div className="relative h-48 overflow-hidden">
                     {room.imageUrl ? (
-                      <img src={room.imageUrl} alt={room.name} className="w-full h-full object-cover" />
+                      <img src={room.imageUrl} alt={room.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                     ) : (
                       <div className="w-full h-full bg-gradient-to-br from-primary/10 to-tertiary/10 flex items-center justify-center">
                         <span className="material-symbols-outlined text-5xl text-primary/20" style={{ fontVariationSettings: "'FILL' 1" }}>bed</span>
                       </div>
                     )}
-                    {room.leaderRoom && (
-                      <div className="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-1">
+                    {isFull ? (
+                      <div className="absolute inset-0 bg-surface/40 backdrop-blur-[2px] flex items-center justify-center z-10">
+                        <span className="bg-error text-on-error px-6 py-2 rounded-full font-bold uppercase tracking-widest shadow-lg">
+                          {t('roomSelection.full')}
+                        </span>
+                      </div>
+                    ) : room.leaderRoom && (
+                      <div className="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-1 shadow-lg">
                         <span className="material-symbols-outlined text-white text-[12px]">workspace_premium</span>
-                        <span className="text-white text-[10px] font-bold uppercase tracking-widest">Leaders Room</span>
+                        <span className="text-white text-[10px] font-bold uppercase tracking-widest">{t('roomSelection.leadersRoom')}</span>
                       </div>
                     )}
                   </div>
-                  <div className="p-5">
+                  <div className="p-6">
                     <div className="flex justify-between items-start mb-4">
                       <div>
-                        <h3 className="text-xl font-bold text-primary font-headline">{room.name}</h3>
-                        <div className="flex items-center gap-1 mt-1">
-                          <span className="material-symbols-outlined text-secondary text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
+                        <h3 className="text-2xl font-bold text-primary font-headline">{room.name}</h3>
+                        <div className="flex items-center gap-2 mt-1.5">
+                          <span className="material-symbols-outlined text-secondary text-[18px]" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
                           <span className="text-secondary text-xs font-bold uppercase tracking-wider">
-                            {isFull ? 'Full' : `${available} of ${room.capacity} beds available`}
+                            {isFull ? t('roomSelection.full') : t('roomSelection.available', { available, capacity: room.capacity })}
                           </span>
                         </div>
                       </div>
                     </div>
-                    <div className="pt-4 border-t border-outline-variant/20">
-                      <p className="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest mb-2">Current Roommates</p>
+                    <div className="pt-5 border-t border-outline-variant/10">
+                      <p className="text-[10px] text-secondary font-bold uppercase tracking-widest mb-3">{t('roomSelection.roommates')}</p>
                       {occupants.length > 0 ? (
-                        <div className="flex flex-wrap gap-2 mb-3">
+                        <div className="flex flex-wrap gap-2.5">
                           {occupants.map(o => (
-                            <div key={o.id} className={`flex items-center gap-2 px-3 py-1.5 rounded-full ${o.isHold ? 'bg-surface-container opacity-60 border border-dashed border-outline-variant/50 bg-[repeating-linear-gradient(45deg,transparent,transparent_4px,rgba(0,0,0,0.02)_4px,rgba(0,0,0,0.02)_8px)]' : 'bg-surface-container-low'}`}>
+                            <div key={o.id} className={`flex items-center gap-2.5 px-3.5 py-2 rounded-full shadow-sm ${o.isHold ? 'bg-surface-container opacity-60 border border-dashed border-outline-variant/50 bg-[repeating-linear-gradient(45deg,transparent,transparent_4px,rgba(0,0,0,0.02)_4px,rgba(0,0,0,0.02)_8px)]' : 'bg-surface-container-low'}`}>
                               <Avatar firstName={o.firstName} lastName={o.lastName} size="sm" />
-                              <span className="text-xs font-semibold text-on-surface">{o.firstName} {o.lastName.charAt(0)}.</span>
+                              <span className="text-xs font-bold text-on-surface">{o.firstName} {o.lastName.charAt(0)}.</span>
                             </div>
                           ))}
                         </div>
                       ) : (
-                        <span className="text-xs font-medium text-outline italic">No roommates yet. Be the first!</span>
+                        <span className="text-xs font-medium text-outline opacity-80 italic">{t('roomSelection.noRoommates')}</span>
                       )}
                     </div>
                   </div>
@@ -148,10 +153,12 @@ export default function RoomSelectionPage() {
         )}
       </main>
 
-      <nav className="fixed bottom-0 left-0 w-full z-50 flex justify-center items-center px-6 pb-8 pt-6 bg-white/90 backdrop-blur-md rounded-t-[2rem] shadow-[0_-12px_32px_rgba(25,28,30,0.06)]">
-        <Button fullWidth disabled={!selectedRoomId} loading={holdMut.isPending} onClick={() => selectedRoomId && holdMut.mutate(selectedRoomId)} className="max-w-md">
-          Select Room
-        </Button>
+      <nav className="fixed bottom-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md rounded-t-[2rem] shadow-[0_-12px_32px_rgba(25,28,30,0.06)]">
+        <div className="flex flex-col items-center justify-center p-6 pb-8 w-full gap-2 max-w-2xl mx-auto">
+          <Button fullWidth disabled={!selectedRoomId} loading={holdMut.isPending} onClick={() => selectedRoomId && holdMut.mutate(selectedRoomId)} icon="arrow_forward">
+            {t('roomSelection.selectButton')}
+          </Button>
+        </div>
       </nav>
       <AppFooter />
     </div>

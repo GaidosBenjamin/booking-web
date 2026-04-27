@@ -1,11 +1,24 @@
 export type BookingStatus = 'PENDING' | 'SUCCEEDED' | 'FAILED' | 'CANCELED';
 
 export interface BookingItem {
-  camperId: string;
-  tierId: string;
   roomId: string;
   price: number;
-  holdExpiresAt: string | number;
+  holdExpiresAt: string;
+  tier: {
+    id: string;
+    name: string;
+    currency: string;
+    basePrice: number;
+    discountedPrice: number;
+  };
+  camper: {
+    id: string;
+    firstName: string;
+    lastName: string;
+    dateOfBirth: string;
+    grade: string;
+    gender: string;
+  };
 }
 
 export interface BookingResponse {
@@ -13,7 +26,8 @@ export interface BookingResponse {
   amountTotal: number;
   currency: string;
   status: BookingStatus;
-  checkoutUrl: string;
+  checkoutUrl: string | null;
+  expiresAt: string;
   items: BookingItem[];
 }
 

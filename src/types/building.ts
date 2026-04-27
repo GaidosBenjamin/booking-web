@@ -12,8 +12,15 @@ export interface TierResponse {
 export interface BuildingResponse {
   id: string;
   name: string;
-  description: string;
-  highlights: string[];
+  description: {
+    [key: string]: string;
+  };
+  highlights: {
+    [key: string]: Array<{
+      icon: string;
+      text: string;
+    }>;
+  };
   imageUrl: string;
   tier: TierResponse;
   isFull?: boolean;

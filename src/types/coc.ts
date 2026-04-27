@@ -1,6 +1,30 @@
+export interface LocalizedString {
+  en: string;
+  ro: string;
+}
+
+export interface LocalizedArray {
+  en: string[];
+  ro: string[];
+}
+
+export interface CocRule {
+  icon: string;
+  title: LocalizedString;
+  number: string;
+  description: LocalizedString;
+  bulletPoints?: LocalizedArray;
+}
+
+export interface CocContent {
+  rules: CocRule[];
+  title: LocalizedString;
+  introduction: LocalizedString;
+}
+
 export interface CodeOfConductResponse {
   id: string;
-  content: Record<string, unknown>;
+  content: CocContent;
   active: boolean;
   createdOn: string;
 }

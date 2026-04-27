@@ -4,13 +4,14 @@ import { useTranslation } from 'react-i18next';
 import { getBooking } from '../../api/bookings';
 import { useCurrentUser } from '../../hooks/useCurrentUser';
 import Button from '../../components/Button';
+import LanguageSwitcher from '../../components/LanguageSwitcher';
 import AppFooter from '../../components/AppFooter';
 
 export default function BookingSuccessPage() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const { t } = useTranslation();
-  const bookingId = searchParams.get('bookingId') || sessionStorage.getItem('bookingId') || '';
+  const bookingId = searchParams.get('bookingId') || '';
   const { data: user } = useCurrentUser();
   const { data: booking } = useQuery({
     queryKey: ['bookings', bookingId],
@@ -21,6 +22,9 @@ export default function BookingSuccessPage() {
   return (
     <div className="min-h-screen bg-surface flex flex-col relative overflow-x-hidden">
       {/* Atmospheric blurs */}
+      <div className="absolute top-6 right-6 z-50">
+        <LanguageSwitcher />
+      </div>
       <div className="absolute -top-32 -left-32 w-96 h-96 bg-primary-fixed/30 rounded-full blur-[120px] pointer-events-none z-0" />
       <div className="absolute top-1/3 -right-32 w-[30rem] h-[30rem] bg-secondary-fixed/20 rounded-full blur-[120px] pointer-events-none z-0" />
 
@@ -51,7 +55,7 @@ export default function BookingSuccessPage() {
               <div className="text-right">
                 <p className="font-label text-xs font-semibold uppercase tracking-widest text-outline mb-2">{t('bookingSuccess.totalPaid')}</p>
                 <p className="font-display text-primary font-bold text-3xl">
-                  ${booking?.amountTotal?.toFixed(0) || '—'}<span className="text-xl text-primary/70">.{((booking?.amountTotal || 0) % 1 * 100).toFixed(0).padStart(2, '0')}</span>
+                  {booking?.amountTotal?.toFixed(0) || '—'} <span className="text-xl text-primary/70">{booking?.currency}</span>
                 </p>
               </div>
             </div>

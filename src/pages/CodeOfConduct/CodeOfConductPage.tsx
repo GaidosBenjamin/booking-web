@@ -11,7 +11,8 @@ import AppFooter from '../../components/AppFooter';
 export default function CodeOfConductPage() {
   const navigate = useNavigate();
   const { showToast } = useToast();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentLang = i18n.language === 'ro' ? 'ro' : 'en';
   const queryClient = useQueryClient();
   const [loading, setLoading] = useState(false);
 
@@ -44,18 +45,7 @@ export default function CodeOfConductPage() {
     setLoading(false);
   };
 
-  type CocContent = {
-    title?: string;
-    introduction?: string;
-    rules?: Array<{
-      icon?: string;
-      title?: string;
-      number?: string;
-      description?: string;
-      bulletPoints?: string[];
-    }>;
-  };
-  const content = activeCoc?.content as CocContent | undefined;
+  const content = activeCoc?.content;
 
   return (
     <div className="min-h-screen bg-surface pb-32">
@@ -64,15 +54,19 @@ export default function CodeOfConductPage() {
         <section className="mb-12">
           <span className="text-secondary font-headline font-bold text-sm tracking-widest uppercase mb-2 block">{t('coc.badge')}</span>
           <h2 className="text-4xl font-extrabold text-primary mb-6 leading-tight font-headline">
-            {content?.title || 'Code of Conduct'}
+            {content?.title?.[currentLang] || 'Code of Conduct'}
           </h2>
-          {content?.introduction && (
+          {content?.introduction?.[currentLang] && (
             <p className="text-on-surface-variant leading-relaxed text-lg mb-8">
-              {content.introduction}
+              {content.introduction[currentLang]}
             </p>
           )}
-          <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden mb-8 bg-gradient-to-br from-primary/10 via-secondary/10 to-tertiary/10 flex items-center justify-center">
-            <span className="material-symbols-outlined text-primary/30 text-8xl" style={{ fontVariationSettings: "'FILL' 1" }}>landscape</span>
+          <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden mb-12 shadow-card">
+            <img 
+              src="https://booking-service-images-218014314930.s3.eu-central-1.amazonaws.com/buildings/diverse/code-of-conduct.jpg" 
+              alt="Code of Conduct" 
+              className="w-full h-full object-cover"
+            />
           </div>
         </section>
 
@@ -83,18 +77,18 @@ export default function CodeOfConductPage() {
               <div className="flex justify-between items-start mb-6">
                 <div className="w-12 h-12 bg-primary-fixed flex items-center justify-center rounded-full">
                   <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>
-                    {rule.icon || ['handshake', 'shield_with_heart', 'forest', 'groups', 'eco'][i % 5]}
+                    {rule.icon === 'heart' ? 'favorite' : rule.icon === 'trees' ? 'forest' : (rule.icon || 'check_circle')}
                   </span>
                 </div>
                 <span className="font-headline font-extrabold text-surface-variant text-5xl opacity-50 italic">
-                  {rule.number || String(i + 1).padStart(2, '0')}
+                  {rule.number}
                 </span>
               </div>
-              <h3 className="text-2xl font-bold text-primary mb-4 font-headline">{rule.title}</h3>
-              <p className="text-on-surface-variant leading-relaxed mb-4">{rule.description}</p>
-              {rule.bulletPoints && rule.bulletPoints.length > 0 && (
+              <h3 className="text-2xl font-bold text-primary mb-4 font-headline">{rule.title[currentLang]}</h3>
+              <p className="text-on-surface-variant leading-relaxed mb-4">{rule.description[currentLang]}</p>
+              {rule.bulletPoints?.[currentLang] && rule.bulletPoints[currentLang].length > 0 && (
                 <ul className="space-y-3">
-                  {rule.bulletPoints.map((bullet, j) => (
+                  {rule.bulletPoints[currentLang].map((bullet, j) => (
                     <li key={j} className="flex items-center gap-3 text-sm font-medium text-on-surface-variant">
                       <span className="w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span>
                       {bullet}

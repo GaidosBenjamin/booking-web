@@ -23,7 +23,8 @@ function getAge(dob: string): number {
 export default function BuildingSelectionPage() {
   const { camperId } = useParams<{ camperId: string }>();
   const navigate = useNavigate();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentLang = i18n.language === 'ro' ? 'ro' : 'en';
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const { data: user } = useCurrentUser();
   const { data: campers } = useQuery({ queryKey: ['campers'], queryFn: getCampers });
@@ -44,9 +45,9 @@ export default function BuildingSelectionPage() {
   };
 
   return (
-    <div className="min-h-screen bg-surface">
+    <div className="min-h-screen bg-surface pb-32">
       <AppHeader title={t('buildingSelection.selectingFor', { name: camper?.firstName || '...' })} />
-      <main className="pt-24 pb-32 px-6 max-w-2xl mx-auto">
+      <main className="pt-24 px-6 max-w-2xl mx-auto">
         <div className="mb-10 text-center md:text-left">
           <p className="text-secondary font-medium text-sm mb-2 tracking-wide uppercase">{t('buildingSelection.badge')}</p>
           <h2 className="text-3xl md:text-4xl font-extrabold text-primary leading-tight font-headline">
@@ -61,7 +62,7 @@ export default function BuildingSelectionPage() {
               const price = user?.member && building.tier.memberDiscount ? building.tier.discountPrice : building.tier.basePrice;
               return (
                 <div key={building.id} onClick={() => { if (!building.isFull) setSelectedId(building.id); }}
-                  className={`group relative bg-surface-container-lowest rounded-[1.5rem] overflow-hidden ambient-shadow transition-all duration-300 ${building.isFull ? 'opacity-60 cursor-not-allowed grayscale-[30%]' : 'hover:translate-y-[-4px] active:scale-[0.98] cursor-pointer'} ${isSelected ? 'ring-2 ring-primary' : ''}`}>
+                  className={`group relative bg-surface-container-lowest rounded-[1.5rem] overflow-hidden ambient-shadow transition-all duration-300 ${building.isFull ? 'opacity-60 cursor-not-allowed grayscale-[30%]' : 'hover:translate-y-[-4px] active:scale-[0.98] cursor-pointer'} ${isSelected ? 'ring-4 ring-primary shadow-xl translate-y-[-4px]' : ''}`}>
                   <div className="relative h-48 overflow-hidden">
                     {building.imageUrl ? (
                       <img src={building.imageUrl} alt={building.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
@@ -76,10 +77,10 @@ export default function BuildingSelectionPage() {
                           {t('buildingSelection.full')}
                         </span>
                       </div>
-                    ) : i === 0 && (
+                    ) : building.tier.memberDiscount && (
                       <div className="absolute top-4 left-4">
                         <span className="bg-primary text-on-primary px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase flex items-center gap-1.5 shadow-lg">
-                          <span className="material-symbols-outlined text-[14px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span> {t('buildingSelection.recommended')}
+                          <span className="material-symbols-outlined text-[14px]" style={{ fontVariationSettings: "'FILL' 1" }}>verified</span> {t('buildingSelection.memberRate')}
                         </span>
                       </div>
                     )}
@@ -91,20 +92,35 @@ export default function BuildingSelectionPage() {
                         <h3 className="text-2xl font-bold text-primary font-headline">{building.name}</h3>
                       </div>
                       <div className="text-right">
-                        <span className="block text-2xl font-extrabold text-primary">${price.toFixed(0)}</span>
-                        <span className="text-xs text-outline font-medium tracking-tighter">{t('buildingSelection.perWeek', { currency: building.tier.currency })}</span>
+                        {user?.member && building.tier.memberDiscount ? (
+                          <>
+                            <span className="block text-sm text-outline line-through leading-none mb-1">
+                              {building.tier.basePrice.toFixed(0)} {building.tier.currency}
+                            </span>
+                            <span className="block text-2xl font-extrabold text-primary leading-none">
+                              {building.tier.discountPrice.toFixed(0)} {building.tier.currency}
+                            </span>
+                          </>
+                        ) : (
+                          <span className="block text-2xl font-extrabold text-primary">
+                            {building.tier.basePrice.toFixed(0)} {building.tier.currency}
+                          </span>
+                        )}
                       </div>
                     </div>
-                    {user?.member && building.tier.memberDiscount && (
-                      <span className="inline-flex items-center gap-1 bg-secondary-container/40 text-secondary text-xs font-bold px-3 py-1 rounded-full mb-3">
-                        <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>verified</span> {t('buildingSelection.memberRate')}
-                      </span>
-                    )}
-                    <ul className="mt-4 space-y-2 text-sm text-on-surface-variant">
-                      {building.highlights.map((h, j) => (
-                        <li key={j} className="flex items-center gap-2">
-                          <span className="material-symbols-outlined text-[18px] text-secondary">check_circle</span>
-                          <span>{h}</span>
+
+
+                    <p className="mt-3 text-sm text-on-surface-variant leading-relaxed opacity-80 line-clamp-2">
+                      {building.description[currentLang]}
+                    </p>
+
+                    <ul className="mt-5 space-y-3 text-sm text-on-surface-variant">
+                      {(building.highlights[currentLang] || []).map((h, j) => (
+                        <li key={j} className="flex items-center gap-3">
+                          <span className="material-symbols-outlined text-[20px] text-secondary">
+                            {h.icon === 'users' ? 'group' : (h.icon || 'check_circle')}
+                          </span>
+                          <span className="font-medium">{h.text}</span>
                         </li>
                       ))}
                     </ul>

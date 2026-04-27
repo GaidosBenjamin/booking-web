@@ -17,8 +17,8 @@
     "ro": "Română"
   },
   "login": {
-    "title": "Let's find your adventure",
-    "subtitle": "Experience the tranquility of nature with curated summer programs for your family.",
+    "title": "A solid foundation for your child",
+    "subtitle": "Give them a summer full of adventure, new friendships, and spiritual growth in a safe Christian environment.",
     "email": "Email Address",
     "emailPlaceholder": "hello@adventure.com",
     "password": "Password",
@@ -34,7 +34,7 @@
   },
   "register": {
     "title": "Register",
-    "quote": "\"The best classroom is the one without walls.\"",
+    "quote": "\"Camp is where friends become family and faith becomes a foundation.\"",
     "firstName": "First Name",
     "firstNamePlaceholder": "e.g. Julian",
     "lastName": "Last Name",
@@ -166,7 +166,7 @@
     "headline": "Choose the best camp experience for {{name}}.",
     "selectingFor": "Selecting for {{name}}",
     "recommended": "Recommended",
-    "memberRate": "Member Rate",
+    "memberRate": "Member Discount",
     "perWeek": "/{{currency}} /WEEK",
     "full": "Full",
     "continueButton": "Continue"
@@ -184,7 +184,12 @@
     "toasts": {
       "selected": "Room selected!",
       "failed": "Failed to hold room. Please try again."
-    }
+    },
+    "quotes": [
+      "Rooms are assigned by availability.",
+      "Your camper will love their bunkmates!",
+      "First come, first served."
+    ]
   },
   "checkout": {
     "title": "Review Booking",

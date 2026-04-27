@@ -23,54 +23,50 @@ export default function BookingFailedPage() {
   });
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
-      {/* Header */}
-      <header className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md shadow-sm">
-        <div className="flex items-center justify-between px-6 py-4 w-full max-w-md mx-auto">
-          <button onClick={() => navigate(-1)} className="text-primary hover:opacity-80 transition-opacity active:scale-95 p-2 -ml-2 rounded-full">
-            <span className="material-symbols-outlined">arrow_back</span>
-          </button>
-          <h1 className="font-headline font-bold text-lg text-primary text-center flex-1 pr-10">{t('checkout.title')}</h1>
-          <LanguageSwitcher />
-        </div>
-      </header>
+    <div className="min-h-screen bg-surface flex flex-col relative overflow-x-hidden">
+      {/* Atmospheric blurs */}
+      <div className="absolute top-6 right-6 z-50">
+        <LanguageSwitcher />
+      </div>
+      <div className="absolute -top-32 -left-32 w-96 h-96 bg-error-container/20 rounded-full blur-[120px] pointer-events-none z-0" />
+      <div className="absolute top-1/3 -right-32 w-[30rem] h-[30rem] bg-error/10 rounded-full blur-[120px] pointer-events-none z-0" />
 
-      <main className="flex-1 w-full max-w-md mx-auto pt-24 pb-32 px-6 flex flex-col justify-center relative z-10">
+      <main className="flex-grow flex flex-col items-center justify-center px-6 py-16 w-full max-w-lg mx-auto relative z-10">
         {/* Error Icon */}
-        <div className="flex justify-center mb-8">
-          <div className="w-24 h-24 rounded-full bg-error-container/50 flex items-center justify-center relative">
-            <div className="absolute inset-0 rounded-full bg-error-container opacity-50 animate-pulse" />
-            <span className="material-symbols-outlined text-error text-5xl relative z-10" style={{ fontVariationSettings: "'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48" }}>error</span>
-          </div>
+        <div className="w-28 h-28 rounded-full bg-error-container flex items-center justify-center mb-8 shadow-card relative animate-scale-in">
+          <div className="absolute inset-0 rounded-full border-4 border-surface-container-lowest/50 scale-110 opacity-50" />
+          <span className="material-symbols-outlined text-[56px] text-on-error-container" style={{ fontVariationSettings: "'FILL' 1" }}>error</span>
         </div>
 
         {/* Headline */}
-        <div className="text-center mb-10">
-          <h2 className="font-headline font-bold text-3xl text-on-surface mb-4 tracking-tight">{t('bookingFailed.title')}</h2>
-          <p className="font-body text-on-surface-variant text-base leading-relaxed"
+        <div className="text-center mb-12 w-full">
+          <h1 className="font-display text-4xl font-extrabold text-on-surface mb-4 tracking-tight">{t('bookingFailed.title')}</h1>
+          <p className="font-body text-on-surface-variant text-lg leading-relaxed max-w-[280px] mx-auto"
             dangerouslySetInnerHTML={{ __html: t('bookingFailed.subtitle') }} />
         </div>
 
         {/* Reason Card */}
-        <div className="bg-surface-container-lowest rounded-xl p-5 mb-8 flex items-start gap-4 ambient-shadow">
-          <div className="mt-0.5 text-error">
-            <span className="material-symbols-outlined text-xl" style={{ fontVariationSettings: "'FILL' 1" }}>credit_card_off</span>
-          </div>
-          <div className="flex-1">
-            <h3 className="font-headline font-semibold text-sm text-on-surface mb-1">{t('bookingFailed.reasonTitle')}</h3>
-            <p className="font-body text-sm text-on-surface-variant">{t('bookingFailed.reasonBody')}</p>
+        <div className="w-full bg-surface-container-lowest rounded-[2rem] p-8 mb-12 shadow-card flex flex-col gap-8 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-error-container/10 to-transparent pointer-events-none" />
+          <div className="relative z-10 flex items-start gap-4">
+            <div className="mt-0.5 shrink-0 text-error">
+              <span className="material-symbols-outlined text-2xl" style={{ fontVariationSettings: "'FILL' 1" }}>credit_card_off</span>
+            </div>
+            <div className="flex-1">
+              <h3 className="font-label font-semibold text-sm text-on-surface mb-1">{t('bookingFailed.reasonTitle')}</h3>
+              <p className="font-body text-sm text-on-surface-variant leading-relaxed">{t('bookingFailed.reasonBody')}</p>
+            </div>
           </div>
         </div>
 
         {/* Actions */}
-        <div className="flex flex-col gap-4 mt-auto">
+        <div className="w-full flex flex-col gap-4">
           <Button fullWidth loading={retryMut.isPending} onClick={() => retryMut.mutate()} icon="refresh" iconPosition="left">
             {t('bookingFailed.tryAgain')}
           </Button>
-          <button className="w-full bg-surface-container-lowest text-primary border border-outline-variant/30 font-label font-semibold text-base py-4 rounded-xl flex items-center justify-center gap-2 hover:bg-surface-container-low transition-colors active:scale-[0.98]">
-            <span className="material-symbols-outlined text-xl">support_agent</span>
+          <Button fullWidth variant="secondary" onClick={() => navigate('/contact')} icon="support_agent" iconPosition="left">
             {t('bookingFailed.contactSupport')}
-          </button>
+          </Button>
         </div>
       </main>
       <AppFooter />

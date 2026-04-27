@@ -64,7 +64,7 @@ export default function BuildingSelectionPage() {
                   className={`group relative bg-surface-container-lowest rounded-[1.5rem] overflow-hidden ambient-shadow transition-all duration-300 ${building.isFull ? 'opacity-60 cursor-not-allowed grayscale-[30%]' : 'hover:translate-y-[-4px] active:scale-[0.98] cursor-pointer'} ${isSelected ? 'ring-4 ring-primary shadow-xl translate-y-[-4px]' : ''}`}>
                   <div className="relative h-48 overflow-hidden">
                     {building.imageUrl ? (
-                      <img src={building.imageUrl} alt={building.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                      <img src={building.imageUrl} alt={building.name} loading="lazy" decoding="async" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                     ) : (
                       <div className="w-full h-full bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
                         <span className="material-symbols-outlined text-5xl text-primary/30" style={{ fontVariationSettings: "'FILL' 1" }}>cabin</span>

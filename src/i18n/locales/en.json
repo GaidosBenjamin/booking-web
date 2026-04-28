@@ -149,6 +149,7 @@
       "noRoom": "No room selected yet",
       "noRoomsAvailable": "No rooms available for age/gender",
       "changeRoom": "Change Room",
+      "confirmed": "Room Confirmed",
       "reservedFor": "Reserved For"
     },
     "toasts": {

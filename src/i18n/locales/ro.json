@@ -149,6 +149,7 @@
       "noRoom": "Nicio cameră selectată",
       "noRoomsAvailable": "Nicio cameră disponibilă pentru vârstă/gen",
       "changeRoom": "Schimbă Camera",
+      "confirmed": "Cameră Confirmată",
       "reservedFor": "Rezervat Pentru"
     },
     "toasts": {

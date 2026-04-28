@@ -1,38 +1,28 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router';
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { useQuery, useMutation } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
-import { getCodeOfConduct, getAgreements, createAgreement } from '../../api/coc';
+import { getCodeOfConduct, createAgreement } from '../../api/coc';
 import { useToast } from '../../components/ToastProvider';
 import AppHeader from '../../components/AppHeader';
 import Button from '../../components/Button';
 import AppFooter from '../../components/AppFooter';
+import cocImage from '../../assets/code-of-conduct.jpg';
 
 export default function CodeOfConductPage() {
   const navigate = useNavigate();
   const { showToast } = useToast();
   const { t, i18n } = useTranslation();
   const currentLang = i18n.language === 'ro' ? 'ro' : 'en';
-  const queryClient = useQueryClient();
   const [loading, setLoading] = useState(false);
 
   const { data: cocList } = useQuery({ queryKey: ['coc'], queryFn: getCodeOfConduct });
-  const { data: agreements } = useQuery({ queryKey: ['coc-agreements'], queryFn: getAgreements });
 
   const activeCoc = cocList?.find((c) => c.active);
-
-  // Skip logic
-  useEffect(() => {
-    if (activeCoc && agreements) {
-      const alreadyAgreed = agreements.some((a) => a.codeOfConductId === activeCoc.id);
-      if (alreadyAgreed) navigate('/checkout', { replace: true });
-    }
-  }, [activeCoc, agreements, navigate]);
 
   const agreeMutation = useMutation({
     mutationFn: () => createAgreement({ codeOfConductId: activeCoc!.id }),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['coc-agreements'] });
       navigate('/checkout');
     },
     onError: () => showToast(t('coc.toasts.failed'), 'error'),
@@ -63,7 +53,7 @@ export default function CodeOfConductPage() {
           )}
           <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden mb-12 shadow-card">
             <img 
-              src="https://booking-service-images-218014314930.s3.eu-central-1.amazonaws.com/buildings/diverse/code-of-conduct.jpg" 
+              src={cocImage}
               alt="Code of Conduct" 
               className="w-full h-full object-cover"
             />

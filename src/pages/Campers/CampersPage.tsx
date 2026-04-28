@@ -228,6 +228,25 @@ export default function CampersPage() {
                           {camper.roomsAvailable === false ? 'block' : 'chevron_right'}
                         </span>
                       </button>
+                    ) : camper.status === 'PAYMENT_SUCCESS' ? (
+                      <div className="w-full flex items-center justify-between p-3 bg-secondary-container/20 border border-secondary/20 rounded-lg opacity-70 cursor-not-allowed">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-full bg-secondary-container overflow-hidden flex items-center justify-center text-on-secondary-container">
+                            {camper.roomHold?.imageUrl ? (
+                              <img src={camper.roomHold.imageUrl} alt={camper.roomHold.name} className="w-full h-full object-cover" />
+                            ) : (
+                              <span className="material-symbols-outlined">bed</span>
+                            )}
+                          </div>
+                          <div className="text-left">
+                            <p className="text-sm font-bold text-secondary">{t('campers.room.confirmed')}</p>
+                            <p className="text-[11px] text-on-secondary-container/70">
+                              {camper.roomHold ? `${camper.roomHold.buildingName} - ${camper.roomHold.name}` : t('campers.room.pickRoom')}
+                            </p>
+                          </div>
+                        </div>
+                        <span className="material-symbols-outlined text-secondary">lock</span>
+                      </div>
                     ) : (
                       <button onClick={() => navigate(`/campers/${camper.id}/building`)} className="w-full flex items-center justify-between p-3 bg-secondary-container/20 border border-secondary/20 rounded-lg hover:bg-secondary-container/30 transition-colors">
                         <div className="flex items-center gap-3">

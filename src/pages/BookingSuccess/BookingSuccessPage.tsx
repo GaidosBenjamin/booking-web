@@ -50,7 +50,7 @@ export default function BookingSuccessPage() {
             <div className="flex justify-between items-end">
               <div>
                 <p className="font-label text-xs font-semibold uppercase tracking-widest text-outline mb-2">{t('bookingSuccess.orderId')}</p>
-                <p className="font-body text-on-surface font-semibold text-lg font-mono">{bookingId ? `#${bookingId.slice(0, 8).toUpperCase()}` : '—'}</p>
+                <p className="font-body text-on-surface font-semibold text-lg font-mono">{bookingId ? `#${bookingId.slice(-8).toUpperCase()}` : '—'}</p>
               </div>
               <div className="text-right">
                 <p className="font-label text-xs font-semibold uppercase tracking-widest text-outline mb-2">{t('bookingSuccess.totalPaid')}</p>

@@ -30,10 +30,12 @@ export default function CheckoutPage() {
         const existing = await getBookings();
         const pendingBookings = existing.filter(b => b.status === 'PENDING');
 
-        if (pendingBookings.length > 0) {
-          setBooking(pendingBookings[pendingBookings.length - 1]);
+        const latestPending = pendingBookings[pendingBookings.length - 1];
+        if (latestPending?.checkoutUrl) {
+          setBooking(latestPending);
         } else {
-          // Create new booking with current campers
+          // Stale or missing Stripe session — cancel all pending and create fresh
+          await Promise.all(pendingBookings.map(b => cancelBooking(b.id)));
           const camperIds = campers.filter(c => c.status !== 'PAYMENT_SUCCESS').map(c => c.id);
           const created = await createBooking({ camperIds: camperIds.length > 0 ? camperIds : campers.map(c => c.id) });
           setBooking(created);
@@ -174,7 +176,7 @@ export default function CheckoutPage() {
         <section className="mt-10 space-y-6">
           <h2 className="font-headline font-bold text-xl text-primary px-1">{t('checkout.paymentMethod')}</h2>
           <button
-            disabled={expired}
+            disabled={expired || !booking?.checkoutUrl}
             onClick={() => booking?.checkoutUrl && window.open(booking.checkoutUrl, '_self')}
             className="w-full flex items-center justify-between p-5 bg-[#635BFF] hover:bg-[#5851E0] text-white rounded-2xl transition-all shadow-lg active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
           >

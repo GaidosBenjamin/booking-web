@@ -22,6 +22,14 @@ export default function BookingFailedPage() {
     onError: () => showToast(t('bookingFailed.toasts.retryFailed'), 'error'),
   });
 
+  const rosterMut = useMutation({
+    mutationFn: async () => {
+      if (bookingId) await cancelBooking(bookingId);
+    },
+    onSuccess: () => navigate('/campers'),
+    onError: () => showToast(t('bookingFailed.toasts.retryFailed'), 'error'),
+  });
+
   return (
     <div className="min-h-screen bg-surface flex flex-col relative overflow-x-hidden">
       {/* Atmospheric blurs */}
@@ -67,7 +75,7 @@ export default function BookingFailedPage() {
           <Button fullWidth variant="secondary" onClick={() => navigate('/contact')} icon="support_agent" iconPosition="left">
             {t('bookingFailed.contactSupport')}
           </Button>
-          <Button fullWidth variant="secondary" onClick={() => navigate('/campers')} icon="group" iconPosition="left">
+          <Button fullWidth variant="secondary" loading={rosterMut.isPending} onClick={() => rosterMut.mutate()} icon="group" iconPosition="left">
             {t('bookingFailed.backToCampers')}
           </Button>
         </div>

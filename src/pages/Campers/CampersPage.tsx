@@ -102,22 +102,22 @@ export default function CampersPage() {
       <div className="grid grid-cols-2 gap-4">
         <div className="space-y-1.5">
           <label className="font-label text-xs font-semibold text-on-surface-variant ml-1">{t('campers.form.firstName')}</label>
-          <input value={formData.firstName} onChange={e => setFormData(p => ({ ...p, firstName: e.target.value }))} className="w-full bg-surface-container-high border-none rounded-lg p-3 text-primary font-medium focus:ring-2 focus:ring-secondary/20" />
+          <input value={formData.firstName} onChange={e => setFormData(p => ({ ...p, firstName: e.target.value }))} className="w-full bg-surface-container-high border-none rounded-lg p-3 text-base text-primary font-medium focus:ring-2 focus:ring-secondary/20" />
         </div>
         <div className="space-y-1.5">
           <label className="font-label text-xs font-semibold text-on-surface-variant ml-1">{t('campers.form.lastName')}</label>
-          <input value={formData.lastName} onChange={e => setFormData(p => ({ ...p, lastName: e.target.value }))} className="w-full bg-surface-container-high border-none rounded-lg p-3 text-primary font-medium focus:ring-2 focus:ring-secondary/20" />
+          <input value={formData.lastName} onChange={e => setFormData(p => ({ ...p, lastName: e.target.value }))} className="w-full bg-surface-container-high border-none rounded-lg p-3 text-base text-primary font-medium focus:ring-2 focus:ring-secondary/20" />
         </div>
       </div>
       <div className="grid grid-cols-2 gap-4">
         <div className="space-y-1.5">
           <label className="font-label text-xs font-semibold text-on-surface-variant ml-1">{t('campers.form.dateOfBirth')}</label>
-          <input type="date" value={formData.dateOfBirth} onChange={e => setFormData(p => ({ ...p, dateOfBirth: e.target.value }))} className="w-full bg-surface-container-high border-none rounded-lg p-3 text-primary font-medium focus:ring-2 focus:ring-secondary/20" />
+          <input type="date" value={formData.dateOfBirth} onChange={e => setFormData(p => ({ ...p, dateOfBirth: e.target.value }))} className="w-full bg-surface-container-high border-none rounded-lg p-3 text-base leading-normal text-primary font-medium focus:ring-2 focus:ring-secondary/20" />
         </div>
         <div className="space-y-1.5">
           <label className="font-label text-xs font-semibold text-on-surface-variant ml-1">{t('campers.form.grade')}</label>
           <div className="relative">
-            <select value={formData.grade} onChange={e => setFormData(p => ({ ...p, grade: e.target.value }))} className="w-full bg-surface-container-high border-none rounded-lg p-3 text-primary font-medium focus:ring-2 focus:ring-secondary/20 appearance-none pr-10">
+            <select value={formData.grade} onChange={e => setFormData(p => ({ ...p, grade: e.target.value }))} className="w-full bg-surface-container-high border-none rounded-lg p-3 text-base text-primary font-medium focus:ring-2 focus:ring-secondary/20 appearance-none pr-10">
               <option value="" disabled>{t('campers.form.gradePlaceholder')}</option>
               <option value="1">{t('campers.form.gradeOptions.1')}</option>
               <option value="2">{t('campers.form.gradeOptions.2')}</option>
@@ -139,7 +139,7 @@ export default function CampersPage() {
       </div>
       <div className="space-y-1.5">
         <label className="font-label text-xs font-semibold text-on-surface-variant ml-1">{t('campers.form.specialRequirements')}</label>
-        <textarea value={formData.specialRequirements} onChange={e => setFormData(p => ({ ...p, specialRequirements: e.target.value }))} placeholder={t('campers.form.specialRequirementsPlaceholder')} className="w-full bg-surface-container-high border-none rounded-lg p-3 text-primary font-medium focus:ring-2 focus:ring-secondary/20 h-24" />
+        <textarea value={formData.specialRequirements} onChange={e => setFormData(p => ({ ...p, specialRequirements: e.target.value }))} placeholder={t('campers.form.specialRequirementsPlaceholder')} className="w-full bg-surface-container-high border-none rounded-lg p-3 text-base text-primary font-medium focus:ring-2 focus:ring-secondary/20 h-24" />
       </div>
       <div className="pt-4 flex items-center justify-between gap-3">
         {onRemove && <button onClick={onRemove} className="flex-1 px-4 py-2 border border-outline text-primary font-semibold text-sm rounded-xl hover:bg-surface-container-low transition-colors">{t('common.remove')}</button>}

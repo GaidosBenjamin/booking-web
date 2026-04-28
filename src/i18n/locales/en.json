@@ -230,6 +230,7 @@
     "reasonBody": "Please check your card details, ensure sufficient funds, or try a different payment method.",
     "tryAgain": "Try Again",
     "contactSupport": "Contact Support",
+    "backToCampers": "Back to Roster",
     "toasts": {
       "retryFailed": "Failed to retry. Please try again."
     }

@@ -9,6 +9,14 @@ export interface CamperRoomHold {
   holdExpiresAt: number;
 }
 
+export interface CamperRoomAssignment {
+  id: string;
+  name: string;
+  imageUrl: string;
+  buildingName: string;
+  assignedOn: number;
+}
+
 export interface CamperResponse {
   id: string;
   firstName: string;
@@ -20,6 +28,7 @@ export interface CamperResponse {
   status: CamperStatus;
   roomsAvailable?: boolean;
   roomHold?: CamperRoomHold;
+  roomAssignment?: CamperRoomAssignment;
   createdOn: string | number;
 }
 

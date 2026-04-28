@@ -67,6 +67,9 @@ export default function BookingFailedPage() {
           <Button fullWidth variant="secondary" onClick={() => navigate('/contact')} icon="support_agent" iconPosition="left">
             {t('bookingFailed.contactSupport')}
           </Button>
+          <Button fullWidth variant="secondary" onClick={() => navigate('/campers')} icon="group" iconPosition="left">
+            {t('bookingFailed.backToCampers')}
+          </Button>
         </div>
       </main>
       <AppFooter />

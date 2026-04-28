@@ -232,8 +232,8 @@ export default function CampersPage() {
                       <div className="w-full flex items-center justify-between p-3 bg-secondary-container/20 border border-secondary/20 rounded-lg opacity-70 cursor-not-allowed">
                         <div className="flex items-center gap-3">
                           <div className="w-10 h-10 rounded-full bg-secondary-container overflow-hidden flex items-center justify-center text-on-secondary-container">
-                            {camper.roomHold?.imageUrl ? (
-                              <img src={camper.roomHold.imageUrl} alt={camper.roomHold.name} className="w-full h-full object-cover" />
+                            {camper.roomAssignment?.imageUrl ? (
+                              <img src={camper.roomAssignment.imageUrl} alt={camper.roomAssignment.name} className="w-full h-full object-cover" />
                             ) : (
                               <span className="material-symbols-outlined">bed</span>
                             )}
@@ -241,7 +241,7 @@ export default function CampersPage() {
                           <div className="text-left">
                             <p className="text-sm font-bold text-secondary">{t('campers.room.confirmed')}</p>
                             <p className="text-[11px] text-on-secondary-container/70">
-                              {camper.roomHold ? `${camper.roomHold.buildingName} - ${camper.roomHold.name}` : t('campers.room.pickRoom')}
+                              {camper.roomAssignment ? `${camper.roomAssignment.buildingName} - ${camper.roomAssignment.name}` : t('campers.room.pickRoom')}
                             </p>
                           </div>
                         </div>

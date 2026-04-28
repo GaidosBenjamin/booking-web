@@ -230,6 +230,7 @@
     "reasonBody": "Te rugăm să verifici detaliile cardului, să te asiguri că ai fonduri suficiente sau să încerci o altă metodă de plată.",
     "tryAgain": "Încearcă Din Nou",
     "contactSupport": "Contactează Suportul",
+    "backToCampers": "Înapoi la Listă",
     "toasts": {
       "retryFailed": "Nu s-a putut reîncerca. Te rugăm să încerci din nou."
     }

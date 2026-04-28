@@ -96,7 +96,7 @@ export default function RoomSelectionPage() {
               const occupants = [...assignments, ...holds];
               return (
                 <div key={room.id} onClick={() => !isFull && setSelectedRoomId(room.id)}
-                  className={`group relative bg-surface-container-lowest rounded-[1.5rem] overflow-hidden ambient-shadow transition-all duration-300 ${isFull ? 'opacity-60 cursor-not-allowed grayscale-[30%]' : 'hover:translate-y-[-4px] active:scale-[0.98] cursor-pointer'} ${isSelected ? 'ring-4 ring-primary shadow-xl translate-y-[-4px]' : ''}`}>
+                  className={`group relative bg-surface-container-lowest rounded-[1.5rem] overflow-hidden ambient-shadow transition-all duration-300 ${isFull ? 'opacity-60 cursor-not-allowed grayscale-[30%]' : 'hover:translate-y-[-4px] active:scale-[0.98] cursor-pointer'} ${isSelected ? 'outline outline-2 outline-offset-2 outline-primary shadow-xl translate-y-[-4px]' : 'outline-none'}`}>
                   <div className="relative h-48 overflow-hidden">
                     {room.imageUrl ? (
                       <img src={room.imageUrl} alt={room.name} loading="lazy" decoding="async" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />

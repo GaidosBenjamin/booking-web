@@ -25,6 +25,7 @@
     "passwordPlaceholder": "••••••••",
     "loginButton": "Login",
     "registerButton": "Register",
+    "donateButton": "Donate",
     "forgotPassword": "Forgot your password?",
     "errors": {
       "invalidCredentials": "Invalid email or password",
@@ -263,5 +264,44 @@
     "title": "Contact Us",
     "emailLabel": "Email",
     "phoneLabel": "Phone"
+  },
+  "donation": {
+    "badge": "Kids Camp 2026",
+    "headline": "Support the Next Generation of Disciples",
+    "body": "Your contribution helps us financially support young people called to ministry, offering them a summer dedicated to their spiritual growth and equipping. At the same time, your gift allows us to provide the practical resources needed for daily activities – such as team sports equipment and materials for creative workshops. We strongly believe in the transforming power of the Gospel, worshipping together, and shared experiences in preparing young hearts to carry forward the work of Christ.",
+    "selectAmount": "Choose an Amount",
+    "amounts": {
+      "100": "Activity Prizes",
+      "250": "Sports Equipment",
+      "500": "Craft Materials",
+      "1000": "Sponsor a Disciple"
+    },
+    "customAmount": "Custom Amount",
+    "customAmountPlaceholder": "0.00",
+    "currency": "RON",
+    "name": "Your Name",
+    "namePlaceholder": "Full name",
+    "donateWithStripe": "Donate Now via Secure Stripe Checkout",
+    "stripeSubtitle": "Secure and encrypted transaction",
+    "disclaimer": "Safe, secure, and encrypted transaction.",
+    "toasts": {
+      "createFailed": "Donation could not be created. Please try again."
+    }
+  },
+  "donationSuccess": {
+    "title": "Thank You",
+    "subtitle": "Thank you from the bottom of our hearts for choosing to support the children's ministry! Your contribution helps us provide them with an unforgettable camp experience and, above all, equip the next generation of disciples for God's work.",
+    "transactionId": "Transaction ID",
+    "returnHome": "Return Home"
+  },
+  "donationFailed": {
+    "title": "Transaction Failed",
+    "subtitle": "We couldn't process your donation. Don't worry, your account has not been charged.",
+    "tryAgain": "Try Again",
+    "contactSupport": "Contact Support",
+    "backHome": "Return Home",
+    "toasts": {
+      "retryFailed": "Could not retry. Please try again."
+    }
   }
 }

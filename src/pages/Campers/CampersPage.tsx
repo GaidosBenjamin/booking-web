@@ -149,7 +149,7 @@ export default function CampersPage() {
   );
 
   return (
-    <div className="min-h-screen bg-surface pb-32">
+    <div className="min-h-screen bg-surface pb-32 flex flex-col">
       <AppHeader
         title={t('campers.title')}
         showBack={false}
@@ -166,7 +166,7 @@ export default function CampersPage() {
           </button>
         }
       />
-      <main className="pt-24 px-6 max-w-2xl mx-auto">
+      <main className="pt-24 px-6 max-w-2xl mx-auto flex-grow">
         <section className="mb-8">
           <h2 className="font-headline text-3xl font-extrabold text-primary mb-2">{t('campers.headline')}</h2>
           <p className="text-on-surface-variant font-light leading-relaxed">{t('campers.subtitle')}</p>
@@ -281,13 +281,13 @@ export default function CampersPage() {
               </div>
             )}
 
-            {/* Add another */}
-            <button onClick={() => { setNewCamperOpen(true); setExpandedId(null); setFormData(emptyForm); }} className="w-full py-6 mt-6 border-2 border-dashed border-outline-variant hover:border-secondary hover:bg-secondary/5 rounded-2xl flex flex-col items-center justify-center gap-2 group transition-all">
+            {/* Add another — only shown when at least one camper exists */}
+            {campers && campers.length > 0 && <button onClick={() => { setNewCamperOpen(true); setExpandedId(null); setFormData(emptyForm); }} className="w-full py-6 mt-6 border-2 border-dashed border-outline-variant hover:border-secondary hover:bg-secondary/5 rounded-2xl flex flex-col items-center justify-center gap-2 group transition-all">
               <div className="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center group-hover:bg-secondary group-hover:text-white transition-colors">
                 <span className="material-symbols-outlined">person_add</span>
               </div>
               <span className="font-headline font-bold text-primary group-hover:text-secondary">{t('campers.addAnother')}</span>
-            </button>
+            </button>}
 
             {(!campers || campers.length === 0) && !newCamperOpen && (
               <div className="text-center py-16">
@@ -311,6 +311,18 @@ export default function CampersPage() {
           )}
         </div>
       </nav>
+
+      <div className="flex justify-center pb-4 mt-20">
+        <button
+          type="button"
+          onClick={() => navigate('/donation')}
+          className="flex items-center gap-2 px-8 py-4 rounded-2xl border-2 border-primary text-primary font-headline font-semibold text-base hover:bg-primary/5 transition-colors"
+        >
+          <span className="material-symbols-outlined text-xl" style={{ fontVariationSettings: "'FILL' 0" }}>volunteer_activism</span>
+          {t('login.donateButton')}
+        </button>
+      </div>
+
       <AppFooter />
     </div>
   );

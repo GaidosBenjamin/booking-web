@@ -83,8 +83,20 @@ export default function LoginPage() {
               </button>
             </div>
           </form>
+
         </div>
       </main>
+
+      <div className="flex justify-center pb-4">
+        <button
+          type="button"
+          onClick={() => navigate('/donation')}
+          className="flex items-center gap-2 px-8 py-4 rounded-2xl border-2 border-primary text-primary font-headline font-semibold text-base hover:bg-primary/5 transition-colors"
+        >
+          <span className="material-symbols-outlined text-xl" style={{ fontVariationSettings: "'FILL' 0" }}>volunteer_activism</span>
+          {t('login.donateButton')}
+        </button>
+      </div>
 
       <AppFooter />
     </div>

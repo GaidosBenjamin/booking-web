@@ -25,6 +25,7 @@
     "passwordPlaceholder": "••••••••",
     "loginButton": "Conectare",
     "registerButton": "Înregistrare",
+    "donateButton": "Donează",
     "forgotPassword": "Ai uitat parola?",
     "errors": {
       "invalidCredentials": "Email sau parolă incorectă",
@@ -263,5 +264,44 @@
     "title": "Contactați-ne",
     "emailLabel": "Email",
     "phoneLabel": "Telefon"
+  },
+  "donation": {
+    "badge": "Tabăra Copii 2026",
+    "headline": "Susține Generația Viitoare de Ucenici",
+    "body": "Contribuția ta ne ajută să susținem financiar tinerii chemați în slujire, oferindu-le o vară dedicată creșterii spirituale și echipării lor. Totodată, darul tău ne permite să asigurăm resursele practice necesare activităților zilnice – precum echipamente pentru jocuri și materiale pentru ateliere creative. Credem cu tărie în puterea transformatoare a Evangheliei, a închinării împreună și a experiențelor comune în pregătirea tinerelor inimi pentru a duce mai departe lucrarea lui Hristos.",
+    "selectAmount": "Alege o Sumă",
+    "amounts": {
+      "100": "Premii Activități",
+      "250": "Echipamente Sportive",
+      "500": "Materiale Ateliere",
+      "1000": "Sponsorizează un Ucenic"
+    },
+    "customAmount": "Sumă Personalizată",
+    "customAmountPlaceholder": "0.00",
+    "currency": "RON",
+    "name": "Numele Tău",
+    "namePlaceholder": "Nume complet",
+    "donateWithStripe": "Donează Acum prin Stripe Checkout Securizat",
+    "stripeSubtitle": "Tranzacție sigură și criptată",
+    "disclaimer": "Tranzacție sigură, protejată și criptată.",
+    "toasts": {
+      "createFailed": "Donația nu a putut fi creată. Te rugăm să încerci din nou."
+    }
+  },
+  "donationSuccess": {
+    "title": "Mulțumim",
+    "subtitle": "Vă mulțumim din inimă că ați ales să susțineți lucrarea cu copiii! Contribuția dumneavoastră ne ajută să le oferim o experiență de neuitat în tabără și, mai presus de toate, să echipăm generația viitoare de ucenici pentru lucrarea lui Dumnezeu.",
+    "transactionId": "ID Tranzacție",
+    "returnHome": "Înapoi Acasă"
+  },
+  "donationFailed": {
+    "title": "Tranzacție Nereușită",
+    "subtitle": "Nu am putut procesa donația ta. Nu-ți face griji, contul tău nu a fost debitat.",
+    "tryAgain": "Încearcă Din Nou",
+    "contactSupport": "Contactează Suportul",
+    "backHome": "Înapoi Acasă",
+    "toasts": {
+      "retryFailed": "Nu s-a putut reîncerca. Te rugăm să încerci din nou."
+    }
   }
 }

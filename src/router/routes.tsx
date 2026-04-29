@@ -15,6 +15,9 @@ import BookingFailedPage from '../pages/BookingFailed/BookingFailedPage';
 import PrivacyPolicyPage from '../pages/Legal/PrivacyPolicyPage';
 import TermsOfServicePage from '../pages/Legal/TermsOfServicePage';
 import ContactPage from '../pages/Legal/ContactPage';
+import DonationPage from '../pages/Donation/DonationPage';
+import DonationSuccessPage from '../pages/Donation/DonationSuccessPage';
+import DonationFailedPage from '../pages/Donation/DonationFailedPage';
 
 export const router = createBrowserRouter([
   {
@@ -108,5 +111,17 @@ export const router = createBrowserRouter([
   {
     path: '/contact',
     element: <ContactPage />,
+  },
+  {
+    path: '/donation',
+    element: <DonationPage />,
+  },
+  {
+    path: '/donation/success',
+    element: <DonationSuccessPage />,
+  },
+  {
+    path: '/donation/failed',
+    element: <DonationFailedPage />,
   },
 ]);

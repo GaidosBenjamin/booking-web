@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import { createDonation } from '../../api/donations';
@@ -10,12 +10,17 @@ import disciples from '../../assets/disciples.jpg';
 
 const PRESET_AMOUNTS = [100, 250, 500, 1000] as const;
 const ORG_SLUG = import.meta.env.VITE_ORG_SLUG as string;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL as string;
 
 export default function DonationPage() {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const { isAuthenticated } = useAuth();
   const { showToast } = useToast();
+
+  useEffect(() => {
+    fetch(`${API_BASE_URL}/actuator/health`, { method: 'HEAD' }).catch(() => {});
+  }, []);
 
   const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
   const [customAmount, setCustomAmount] = useState('');

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, Navigate } from 'react-router';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -11,6 +11,8 @@ import Input from '../../components/Input';
 import Button from '../../components/Button';
 import AppFooter from '../../components/AppFooter';
 import LanguageSwitcher from '../../components/LanguageSwitcher';
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL as string;
 
 const loginSchema = z.object({
   email: z.string().email(),
@@ -25,6 +27,10 @@ export default function LoginPage() {
   const { showToast } = useToast();
   const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    fetch(`${API_BASE_URL}/actuator/health`, { method: 'HEAD' }).catch(() => {});
+  }, []);
 
   if (isAuthenticated) {
     return <Navigate to="/campers" replace />;

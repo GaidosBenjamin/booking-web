@@ -67,7 +67,7 @@ export default function CodeOfConductPage() {
               <div className="flex justify-between items-start mb-6">
                 <div className="w-12 h-12 bg-primary-fixed flex items-center justify-center rounded-full">
                   <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>
-                    {rule.icon === 'heart' ? 'favorite' : rule.icon === 'trees' ? 'forest' : (rule.icon || 'check_circle')}
+                    {({'heart': 'favorite', 'trees': 'forest', 'users': 'group', 'activity': 'directions_run', 'sparkles': 'auto_awesome', 'shield': 'shield', 'briefcase': 'work', 'smile': 'sentiment_satisfied', 'alert-circle': 'error'} as Record<string, string>)[rule.icon] ?? rule.icon ?? 'check_circle'}
                   </span>
                 </div>
                 <span className="font-headline font-extrabold text-surface-variant text-5xl opacity-50 italic">
@@ -75,7 +75,9 @@ export default function CodeOfConductPage() {
                 </span>
               </div>
               <h3 className="text-2xl font-bold text-primary mb-4 font-headline">{rule.title[currentLang]}</h3>
-              <p className="text-on-surface-variant leading-relaxed mb-4">{rule.description[currentLang]}</p>
+              {rule.description?.[currentLang] && (
+                <p className="text-on-surface-variant leading-relaxed mb-4">{rule.description[currentLang]}</p>
+              )}
               {rule.bulletPoints?.[currentLang] && rule.bulletPoints[currentLang].length > 0 && (
                 <ul className="space-y-3">
                   {rule.bulletPoints[currentLang].map((bullet, j) => (

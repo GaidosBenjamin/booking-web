@@ -12,7 +12,7 @@ export interface CocRule {
   icon: string;
   title: LocalizedString;
   number: string;
-  description: LocalizedString;
+  description?: LocalizedString;
   bulletPoints?: LocalizedArray;
 }
 

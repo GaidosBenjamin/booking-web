@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { useQuery, useMutation } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
@@ -15,6 +15,20 @@ export default function CodeOfConductPage() {
   const { t, i18n } = useTranslation();
   const currentLang = i18n.language === 'ro' ? 'ro' : 'en';
   const [loading, setLoading] = useState(false);
+  const [hasScrolledToBottom, setHasScrolledToBottom] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const { scrollY, innerHeight } = window;
+      const { scrollHeight } = document.documentElement;
+      if (scrollY + innerHeight >= scrollHeight - 80) {
+        setHasScrolledToBottom(true);
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const { data: cocList } = useQuery({ queryKey: ['coc'], queryFn: getCodeOfConduct });
 
@@ -96,7 +110,13 @@ export default function CodeOfConductPage() {
       {/* Sticky footer */}
       <footer className="fixed bottom-0 w-full bg-white/90 backdrop-blur-xl rounded-t-3xl shadow-[0_-12px_32px_rgba(25,28,30,0.06)] z-50">
         <div className="flex flex-col items-center justify-center p-6 w-full gap-4 max-w-2xl mx-auto">
-          <Button fullWidth loading={loading} onClick={handleAgree} icon="check_circle">
+          {!hasScrolledToBottom && (
+            <p className="text-sm text-on-surface-variant flex items-center gap-1.5">
+              <span className="material-symbols-outlined text-base">arrow_downward</span>
+              {t('coc.scrollHint')}
+            </p>
+          )}
+          <Button fullWidth loading={loading} disabled={!hasScrolledToBottom} onClick={handleAgree} icon="check_circle">
             {t('coc.acceptButton')}
           </Button>
         </div>

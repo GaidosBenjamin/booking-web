@@ -110,6 +110,7 @@
   "coc": {
     "badge": "Promisiunea Comunității Noastre",
     "acceptButton": "Accept și sunt de Acord",
+    "scrollHint": "Derulează până jos pentru a accepta",
     "toasts": {
       "failed": "Nu s-a putut accepta. Te rugăm să încerci din nou."
     }

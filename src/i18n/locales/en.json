@@ -110,6 +110,7 @@
   "coc": {
     "badge": "Our Community Promise",
     "acceptButton": "I Accept & Agree",
+    "scrollHint": "Scroll to the bottom to accept",
     "toasts": {
       "failed": "Failed to accept. Please try again."
     }

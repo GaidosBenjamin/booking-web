@@ -12,5 +12,6 @@ export interface CreateDonationRequest {
   amount: number;
   currency: string;
   name?: string;
+  email?: string;
   orgSlug: string;
 }

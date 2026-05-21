@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { useTranslation } from 'react-i18next';
+import { useQuery } from '@tanstack/react-query';
 import { createDonation } from '../../api/donations';
+import { getCurrentUser } from '../../api/users';
 import { useAuth } from '../../hooks/useAuth';
 import { useToast } from '../../components/ToastProvider';
 import AppHeader from '../../components/AppHeader';
@@ -22,10 +24,24 @@ export default function DonationPage() {
     fetch(`${API_BASE_URL}/actuator/health`, { method: 'HEAD' }).catch(() => {});
   }, []);
 
+  const { data: currentUser } = useQuery({
+    queryKey: ['currentUser'],
+    queryFn: getCurrentUser,
+    enabled: isAuthenticated,
+  });
+
   const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
   const [customAmount, setCustomAmount] = useState('');
   const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    if (currentUser) {
+      setName(`${currentUser.firstName} ${currentUser.lastName}`.trim());
+      setEmail(currentUser.email);
+    }
+  }, [currentUser]);
 
   const effectiveAmount = customAmount ? parseFloat(customAmount) : selectedAmount;
   const canDonate = !!effectiveAmount && effectiveAmount > 0 && !isSubmitting;
@@ -38,6 +54,7 @@ export default function DonationPage() {
         amount: effectiveAmount,
         currency: 'RON',
         ...(name.trim() && { name: name.trim() }),
+        ...(email.trim() && { email: email.trim() }),
         orgSlug: ORG_SLUG,
       });
       if (donation.checkoutUrl) {
@@ -71,6 +88,22 @@ export default function DonationPage() {
           <p className="font-body text-lg text-on-surface-variant leading-relaxed">
             {t('donation.body')}
           </p>
+
+          <div className="flex flex-col gap-3">
+            <p className="font-label text-xs font-bold text-secondary uppercase tracking-widest">{t('donation.needsTitle')}</p>
+            {(t('donation.needs', { returnObjects: true }) as { icon: string; label: string; description: string }[]).map((need) => (
+              <div key={need.label} className="flex items-center gap-4 bg-surface-container-lowest rounded-xl p-3.5 ambient-shadow">
+                <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined text-primary text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>{need.icon}</span>
+                </div>
+                <div>
+                  <p className="font-headline font-bold text-sm text-primary">{need.label}</p>
+                  <p className="text-xs text-on-surface-variant">{need.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
           <div className="h-64 md:h-80 w-full rounded-[2rem] overflow-hidden ambient-shadow relative group">
             <img
               src={disciples}
@@ -136,7 +169,7 @@ export default function DonationPage() {
           </div>
 
           {/* Name */}
-          <div className="mb-10">
+          <div className="mb-6">
             <label className="font-label text-sm font-semibold text-on-surface-variant mb-2 block" htmlFor="donor-name">
               {t('donation.name')}
             </label>
@@ -146,6 +179,21 @@ export default function DonationPage() {
               value={name}
               onChange={e => setName(e.target.value)}
               placeholder={t('donation.namePlaceholder')}
+              className="w-full h-14 bg-surface-container-high border-none rounded-xl px-4 text-base text-primary font-medium focus:ring-2 focus:ring-secondary/50 placeholder:text-outline"
+            />
+          </div>
+
+          {/* Email */}
+          <div className="mb-10">
+            <label className="font-label text-sm font-semibold text-on-surface-variant mb-2 block" htmlFor="donor-email">
+              {t('donation.email')}
+            </label>
+            <input
+              id="donor-email"
+              type="email"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              placeholder={t('donation.emailPlaceholder')}
               className="w-full h-14 bg-surface-container-high border-none rounded-xl px-4 text-base text-primary font-medium focus:ring-2 focus:ring-secondary/50 placeholder:text-outline"
             />
           </div>

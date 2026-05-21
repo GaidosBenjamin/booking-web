@@ -41,9 +41,10 @@ export default function RoomSelectionPage() {
     queryKey: ['rooms', camper?.gender, camperAge, buildingId],
     queryFn: () => getRooms(camper!.gender, camperAge, buildingId),
     enabled: !!camper && !!buildingId,
+    refetchInterval: 15_000,
   });
 
-  const { data: holds } = useQuery({ queryKey: ['holds'], queryFn: getHolds });
+  const { data: holds } = useQuery({ queryKey: ['holds'], queryFn: getHolds, refetchInterval: 15_000 });
   const existingHold = holds?.find(h => h.camperId === camperId);
 
   const quotes = t('roomSelection.quotes', { returnObjects: true }) as string[];
@@ -77,10 +78,13 @@ export default function RoomSelectionPage() {
         </div>
 
         {existingHold && (
-          <div className="bg-tertiary-container/30 rounded-xl p-4 mb-8 flex items-center gap-3">
-            <span className="material-symbols-outlined text-on-tertiary-container" style={{ fontVariationSettings: "'FILL' 1" }}>schedule</span>
-            <div>
-              <p className="text-on-tertiary-container text-xs font-bold">{t('roomSelection.reservedFor')} <Countdown expiresAt={existingHold.expiresAt} /></p>
+          <div className="bg-white border border-outline-variant/30 rounded-2xl p-5 mb-8 flex items-center gap-4 shadow-sm">
+            <div className="w-11 h-11 rounded-full bg-tertiary/10 flex items-center justify-center shrink-0">
+              <span className="material-symbols-outlined text-tertiary text-2xl" style={{ fontVariationSettings: "'FILL' 1" }}>timer</span>
+            </div>
+            <div className="flex flex-col gap-0.5">
+              <p className="text-outline text-xs font-bold uppercase tracking-widest">{t('roomSelection.reservedFor')}</p>
+              <Countdown expiresAt={existingHold.expiresAt} className="text-2xl text-primary" />
             </div>
           </div>
         )}
@@ -90,13 +94,14 @@ export default function RoomSelectionPage() {
             {rooms?.map(room => {
               const available = room.capacity - room.assignments.length - room.holds.length;
               const isFull = available <= 0;
+              const isDisabled = isFull || !!room.leaderRoom;
               const isSelected = selectedRoomId === room.id;
               const assignments = room.assignments.map(a => ({ ...a, isHold: false }));
               const holds = room.holds.map(h => ({ ...h, isHold: true }));
               const occupants = [...assignments, ...holds];
               return (
-                <div key={room.id} onClick={() => !isFull && setSelectedRoomId(room.id)}
-                  className={`group relative bg-surface-container-lowest rounded-[1.5rem] overflow-hidden ambient-shadow transition-all duration-300 ${isFull ? 'opacity-60 cursor-not-allowed grayscale-[30%]' : 'hover:translate-y-[-4px] active:scale-[0.98] cursor-pointer'} ${isSelected ? 'outline outline-2 outline-offset-2 outline-primary shadow-xl translate-y-[-4px]' : 'outline-none'}`}>
+                <div key={room.id} onClick={() => !isDisabled && setSelectedRoomId(room.id)}
+                  className={`group relative bg-surface-container-lowest rounded-[1.5rem] overflow-hidden ambient-shadow transition-all duration-300 ${isDisabled ? 'opacity-60 cursor-not-allowed grayscale-[30%]' : 'hover:translate-y-[-4px] active:scale-[0.98] cursor-pointer'} ${isSelected ? 'outline outline-2 outline-offset-2 outline-primary shadow-xl translate-y-[-4px]' : 'outline-none'}`}>
                   <div className="relative h-48 overflow-hidden">
                     {room.imageUrl ? (
                       <img src={room.imageUrl} alt={room.name} loading="lazy" decoding="async" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
@@ -111,12 +116,14 @@ export default function RoomSelectionPage() {
                           {t('roomSelection.full')}
                         </span>
                       </div>
-                    ) : room.leaderRoom && (
-                      <div className="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-1 shadow-lg">
-                        <span className="material-symbols-outlined text-white text-[12px]">workspace_premium</span>
-                        <span className="text-white text-[10px] font-bold uppercase tracking-widest">{t('roomSelection.leadersRoom')}</span>
+                    ) : room.leaderRoom ? (
+                      <div className="absolute inset-0 bg-surface/40 backdrop-blur-[2px] flex items-center justify-center z-10">
+                        <span className="bg-primary text-on-primary px-6 py-2 rounded-full font-bold uppercase tracking-widest shadow-lg flex items-center gap-2">
+                          <span className="material-symbols-outlined text-[16px]">workspace_premium</span>
+                          {t('roomSelection.leadersRoom')}
+                        </span>
                       </div>
-                    )}
+                    ) : null}
                   </div>
                   <div className="p-6">
                     <div className="flex justify-between items-start mb-4">

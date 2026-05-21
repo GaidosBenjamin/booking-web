@@ -1,4 +1,6 @@
 import { useTranslation } from 'react-i18next';
+import { updateCurrentUser } from '../api/users';
+import { useAuth } from '../hooks/useAuth';
 
 const LANGUAGES = [
   { code: 'en', label: 'EN', flag: '🇬🇧' },
@@ -11,6 +13,7 @@ interface LanguageSwitcherProps {
 
 export default function LanguageSwitcher({ className = '' }: LanguageSwitcherProps) {
   const { i18n } = useTranslation();
+  const { isAuthenticated } = useAuth();
   const currentLang = i18n.language?.slice(0, 2) || 'en';
   const current = LANGUAGES.find(l => l.code === currentLang) || LANGUAGES[0];
 
@@ -19,7 +22,11 @@ export default function LanguageSwitcher({ className = '' }: LanguageSwitcherPro
       <span className="absolute left-2.5 text-base leading-none pointer-events-none select-none">{current.flag}</span>
       <select
         value={currentLang}
-        onChange={e => i18n.changeLanguage(e.target.value)}
+        onChange={e => {
+          const lang = e.target.value;
+          i18n.changeLanguage(lang);
+          if (isAuthenticated) updateCurrentUser({ language: lang }).catch(() => {});
+        }}
         aria-label="Select language"
         className="pl-8 pr-7 py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-container transition-colors text-xs font-bold font-label text-on-surface-variant hover:text-primary active:scale-95 duration-150 appearance-none cursor-pointer border-none outline-none focus:ring-2 focus:ring-primary/20"
       >

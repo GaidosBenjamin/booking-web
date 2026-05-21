@@ -11,6 +11,7 @@ import Input from '../../components/Input';
 import Button from '../../components/Button';
 import AppFooter from '../../components/AppFooter';
 import LanguageSwitcher from '../../components/LanguageSwitcher';
+import logo from '../../assets/logo.png';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL as string;
 
@@ -70,6 +71,7 @@ export default function LoginPage() {
       <main className="flex-1 pt-32 pb-12 px-6 flex flex-col items-center justify-center">
         <div className="max-w-md mx-auto w-full">
           <div className="mb-10 text-center">
+            <img src={logo} alt="BBSO Kids Camp" className="w-96 h-96 object-contain mx-auto mb-6 mix-blend-multiply" />
             <h1 className="text-4xl font-headline font-extrabold text-primary tracking-tight leading-tight">{t('login.title')}</h1>
             <p className="mt-3 text-on-surface-variant text-lg">{t('login.subtitle')}</p>
           </div>

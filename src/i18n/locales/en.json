@@ -36,13 +36,13 @@
   "register": {
     "title": "Register",
     "quote": "\"Camp is where friends become family and faith becomes a foundation.\"",
-    "firstName": "First Name",
+    "firstName": "Parent First Name",
     "firstNamePlaceholder": "e.g. Julian",
-    "lastName": "Last Name",
+    "lastName": "Parent Last Name",
     "lastNamePlaceholder": "e.g. Thorne",
     "email": "Email Address",
     "emailPlaceholder": "julian@example.com",
-    "phone": "Phone Number",
+    "phone": "Phone Number (where your child can reach you)",
     "phonePlaceholder": "0412 345 678",
     "password": "Password",
     "passwordPlaceholder": "••••••••",
@@ -127,10 +127,10 @@
     "proceedCheckout": "Proceed to Checkout",
     "selectRoomFirst": "Select a room for all campers first.",
     "form": {
-      "firstName": "First Name",
-      "lastName": "Last Name",
+      "firstName": "Child First Name",
+      "lastName": "Child Last Name",
       "dateOfBirth": "Date of Birth",
-      "grade": "Grade",
+      "grade": "Grade (Graduated)",
       "gradePlaceholder": "Select Grade",
       "gradeOptions": {
         "1": "1st Grade",
@@ -143,8 +143,8 @@
       "gender": "Gender",
       "boy": "Boy",
       "girl": "Girl",
-      "specialRequirements": "Special Requirements / Allergies (Optional)",
-      "specialRequirementsPlaceholder": "E.g. Peanut allergy, asthma, etc."
+      "specialRequirements": "Medication / Allergies / etc. (Optional)",
+      "specialRequirementsPlaceholder": "E.g.: Requires an inhaler after physical exercise, allergic to penicillin."
     },
     "room": {
       "pickRoom": "Pick Room",
@@ -268,20 +268,30 @@
   },
   "donation": {
     "badge": "Kids Camp 2026",
-    "headline": "Support the Next Generation of Disciples",
-    "body": "Your contribution helps us financially support young people called to ministry, offering them a summer dedicated to their spiritual growth and equipping. At the same time, your gift allows us to provide the practical resources needed for daily activities – such as team sports equipment and materials for creative workshops. We strongly believe in the transforming power of the Gospel, worshipping together, and shared experiences in preparing young hearts to carry forward the work of Christ.",
+    "headline": "Support Our Kids Camp Ministry",
+    "body": "Every gift helps us create a safe, joyful, and transformative camp experience for children. Your generosity covers the practical needs that make camp possible — and plants seeds in young hearts that will carry the work of Christ to the next generation of disciples.",
+    "needsTitle": "Your gift goes towards",
+    "needs": [
+      { "icon": "brush", "label": "Craft Materials", "description": "Supplies for creative workshops and art projects" },
+      { "icon": "emoji_events", "label": "Activity Prizes", "description": "Rewards that celebrate participation and effort" },
+      { "icon": "sports_soccer", "label": "Sports Equipment", "description": "Gear for team games and outdoor activities" },
+      { "icon": "directions_bus", "label": "Transport", "description": "Safe travel for children to and from camp" },
+      { "icon": "auto_stories", "label": "Discipleship Resources", "description": "Materials to equip the next generation of disciples" }
+    ],
     "selectAmount": "Choose an Amount",
     "amounts": {
       "100": "Activity Prizes",
-      "250": "Sports Equipment",
-      "500": "Craft Materials",
-      "1000": "Sponsor a Disciple"
+      "250": "Craft Materials",
+      "500": "Sports Equipment",
+      "1000": "Transport & Resources"
     },
     "customAmount": "Custom Amount",
     "customAmountPlaceholder": "0.00",
     "currency": "RON",
     "name": "Your Name",
     "namePlaceholder": "Full name",
+    "email": "Email Address",
+    "emailPlaceholder": "your@email.com",
     "donateWithStripe": "Donate Now via Secure Stripe Checkout",
     "stripeSubtitle": "Secure and encrypted transaction",
     "disclaimer": "Safe, secure, and encrypted transaction.",

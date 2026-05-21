@@ -36,13 +36,13 @@
   "register": {
     "title": "Înregistrare",
     "quote": "\"Tabăra este locul unde prietenii devin familie, iar credința devine o temelie.\"",
-    "firstName": "Prenume",
+    "firstName": "Prenume Părinte",
     "firstNamePlaceholder": "ex. Andrei",
-    "lastName": "Nume de Familie",
+    "lastName": "Nume de Familie Părinte",
     "lastNamePlaceholder": "ex. Popescu",
     "email": "Adresă de Email",
     "emailPlaceholder": "andrei@exemplu.com",
-    "phone": "Număr de Telefon",
+    "phone": "Număr de Telefon (la care vă poate suna copilul)",
     "phonePlaceholder": "0712 345 678",
     "password": "Parolă",
     "passwordPlaceholder": "••••••••",
@@ -127,10 +127,10 @@
     "proceedCheckout": "Continuă la Plată",
     "selectRoomFirst": "Selectează mai întâi un loc pentru toți participanții.",
     "form": {
-      "firstName": "Prenume",
-      "lastName": "Nume de Familie",
+      "firstName": "Prenume Copil",
+      "lastName": "Nume de Familie Copil",
       "dateOfBirth": "Data Nașterii",
-      "grade": "Clasă",
+      "grade": "Clasă (Absolvită)",
       "gradePlaceholder": "Selectează Clasa",
       "gradeOptions": {
         "1": "Clasa I",
@@ -143,8 +143,8 @@
       "gender": "Gen",
       "boy": "Băiat",
       "girl": "Fată",
-      "specialRequirements": "Cerințe Speciale / Alergii (Opțional)",
-      "specialRequirementsPlaceholder": "Ex. Alergie la nuci, astm, etc."
+      "specialRequirements": "Tratament Medicamentos / Alergii / etc. (Opțional)",
+      "specialRequirementsPlaceholder": "Ex: Necesită inhalator după efort fizic, alergie la penicilină."
     },
     "room": {
       "pickRoom": "Alege Camera",
@@ -268,20 +268,30 @@
   },
   "donation": {
     "badge": "Tabăra Copii 2026",
-    "headline": "Susține Generația Viitoare de Ucenici",
-    "body": "Contribuția ta ne ajută să susținem financiar tinerii chemați în slujire, oferindu-le o vară dedicată creșterii spirituale și echipării lor. Totodată, darul tău ne permite să asigurăm resursele practice necesare activităților zilnice – precum echipamente pentru jocuri și materiale pentru ateliere creative. Credem cu tărie în puterea transformatoare a Evangheliei, a închinării împreună și a experiențelor comune în pregătirea tinerelor inimi pentru a duce mai departe lucrarea lui Hristos.",
+    "headline": "Susține Lucrarea cu Copiii",
+    "body": "Fiecare dar ne ajută să creăm o experiență de tabără sigură, plină de bucurie și transformatoare pentru copii. Generozitatea ta acoperă nevoile practice care fac tabăra posibilă — și seamănă semințe în inimi tinere care vor duce mai departe lucrarea lui Hristos pentru generația viitoare de ucenici.",
+    "needsTitle": "Darul tău ajută la",
+    "needs": [
+      { "icon": "brush", "label": "Materiale pentru Ateliere", "description": "Consumabile pentru ateliere creative și proiecte artistice" },
+      { "icon": "emoji_events", "label": "Premii pentru Activități", "description": "Recompense care celebrează participarea și efortul" },
+      { "icon": "sports_soccer", "label": "Echipamente Sportive", "description": "Echipament pentru jocuri de echipă și activități în aer liber" },
+      { "icon": "directions_bus", "label": "Transport", "description": "Deplasare în siguranță a copiilor la și de la tabără" },
+      { "icon": "auto_stories", "label": "Resurse de Ucenicie", "description": "Materiale pentru a echipa generația viitoare de ucenici" }
+    ],
     "selectAmount": "Alege o Sumă",
     "amounts": {
       "100": "Premii Activități",
-      "250": "Echipamente Sportive",
-      "500": "Materiale Ateliere",
-      "1000": "Sponsorizează un Ucenic"
+      "250": "Materiale Ateliere",
+      "500": "Echipamente Sportive",
+      "1000": "Transport & Resurse"
     },
     "customAmount": "Sumă Personalizată",
     "customAmountPlaceholder": "0.00",
     "currency": "RON",
     "name": "Numele Tău",
     "namePlaceholder": "Nume complet",
+    "email": "Adresă de Email",
+    "emailPlaceholder": "emailul@tau.com",
     "donateWithStripe": "Donează Acum prin Stripe Checkout Securizat",
     "stripeSubtitle": "Tranzacție sigură și criptată",
     "disclaimer": "Tranzacție sigură, protejată și criptată.",

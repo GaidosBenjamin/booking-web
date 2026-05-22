@@ -44,10 +44,14 @@ export default function DonationPage() {
   }, [currentUser]);
 
   const effectiveAmount = customAmount ? parseFloat(customAmount) : selectedAmount;
-  const canDonate = !!effectiveAmount && effectiveAmount > 0 && !isSubmitting;
+  const canDonate = !!effectiveAmount && effectiveAmount > 0 && !!name.trim() && !!email.trim() && !isSubmitting;
 
   const handleDonate = async () => {
     if (!effectiveAmount) return;
+    if (!name.trim() || !email.trim()) {
+      showToast(t('donation.toasts.nameEmailRequired'), 'error');
+      return;
+    }
     setIsSubmitting(true);
     try {
       const donation = await createDonation({
@@ -171,7 +175,7 @@ export default function DonationPage() {
           {/* Name */}
           <div className="mb-6">
             <label className="font-label text-sm font-semibold text-on-surface-variant mb-2 block" htmlFor="donor-name">
-              {t('donation.name')}
+              {t('donation.name')} <span className="text-error">*</span>
             </label>
             <input
               id="donor-name"
@@ -186,7 +190,7 @@ export default function DonationPage() {
           {/* Email */}
           <div className="mb-10">
             <label className="font-label text-sm font-semibold text-on-surface-variant mb-2 block" htmlFor="donor-email">
-              {t('donation.email')}
+              {t('donation.email')} <span className="text-error">*</span>
             </label>
             <input
               id="donor-email"

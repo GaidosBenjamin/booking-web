@@ -297,7 +297,8 @@
     "stripeSubtitle": "Secure and encrypted transaction",
     "disclaimer": "Safe, secure, and encrypted transaction.",
     "toasts": {
-      "createFailed": "Donation could not be created. Please try again."
+      "createFailed": "Donation could not be created. Please try again.",
+      "nameEmailRequired": "Please enter your name and email to continue."
     }
   },
   "donationSuccess": {

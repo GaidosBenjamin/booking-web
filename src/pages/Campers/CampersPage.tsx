@@ -99,35 +99,31 @@ export default function CampersPage() {
 
   const renderForm = (onSave: () => void, onRemove?: () => void) => (
     <div className="px-6 pb-8 pt-2 space-y-5">
-      <div className="grid grid-cols-2 gap-4">
-        <div className="space-y-1.5">
-          <label className="font-label text-xs font-semibold text-on-surface-variant ml-1">{t('campers.form.firstName')}</label>
-          <input value={formData.firstName} onChange={e => setFormData(p => ({ ...p, firstName: e.target.value }))} className="w-full h-12 bg-surface-container-high border-none rounded-lg px-3 text-base text-primary font-medium focus:ring-2 focus:ring-secondary/20" />
-        </div>
-        <div className="space-y-1.5">
-          <label className="font-label text-xs font-semibold text-on-surface-variant ml-1">{t('campers.form.lastName')}</label>
-          <input value={formData.lastName} onChange={e => setFormData(p => ({ ...p, lastName: e.target.value }))} className="w-full h-12 bg-surface-container-high border-none rounded-lg px-3 text-base text-primary font-medium focus:ring-2 focus:ring-secondary/20" />
-        </div>
+      <div className="space-y-1.5">
+        <label className="font-label text-xs font-semibold text-on-surface-variant ml-1">{t('campers.form.firstName')}</label>
+        <input value={formData.firstName} onChange={e => setFormData(p => ({ ...p, firstName: e.target.value }))} className="w-full h-12 bg-surface-container-high border-none rounded-lg px-3 text-base text-primary font-medium focus:ring-2 focus:ring-secondary/20" />
       </div>
-      <div className="grid grid-cols-2 gap-4">
-        <div className="space-y-1.5">
-          <label className="font-label text-xs font-semibold text-on-surface-variant ml-1">{t('campers.form.dateOfBirth')}</label>
-          <input type="date" value={formData.dateOfBirth} onChange={e => setFormData(p => ({ ...p, dateOfBirth: e.target.value }))} className="w-full min-w-0 h-12 bg-surface-container-high border-none rounded-lg px-3 text-base text-primary font-medium focus:ring-2 focus:ring-secondary/20" />
-        </div>
-        <div className="space-y-1.5">
-          <label className="font-label text-xs font-semibold text-on-surface-variant ml-1">{t('campers.form.grade')}</label>
-          <div className="relative">
-            <select value={formData.grade} onChange={e => setFormData(p => ({ ...p, grade: e.target.value }))} className="w-full h-12 bg-surface-container-high border-none rounded-lg px-3 text-base text-primary font-medium focus:ring-2 focus:ring-secondary/20 appearance-none pr-10">
-              <option value="" disabled>{t('campers.form.gradePlaceholder')}</option>
-              <option value="1">{t('campers.form.gradeOptions.1')}</option>
-              <option value="2">{t('campers.form.gradeOptions.2')}</option>
-              <option value="3">{t('campers.form.gradeOptions.3')}</option>
-              <option value="4">{t('campers.form.gradeOptions.4')}</option>
-              <option value="5">{t('campers.form.gradeOptions.5')}</option>
-              <option value="6">{t('campers.form.gradeOptions.6')}</option>
-            </select>
-            <span className="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">expand_more</span>
-          </div>
+      <div className="space-y-1.5">
+        <label className="font-label text-xs font-semibold text-on-surface-variant ml-1">{t('campers.form.lastName')}</label>
+        <input value={formData.lastName} onChange={e => setFormData(p => ({ ...p, lastName: e.target.value }))} className="w-full h-12 bg-surface-container-high border-none rounded-lg px-3 text-base text-primary font-medium focus:ring-2 focus:ring-secondary/20" />
+      </div>
+      <div className="space-y-1.5">
+        <label className="font-label text-xs font-semibold text-on-surface-variant ml-1">{t('campers.form.dateOfBirth')}</label>
+        <input type="date" value={formData.dateOfBirth} onChange={e => setFormData(p => ({ ...p, dateOfBirth: e.target.value }))} className="w-full min-w-0 h-12 bg-surface-container-high border-none rounded-lg px-3 text-base text-primary font-medium focus:ring-2 focus:ring-secondary/20" />
+      </div>
+      <div className="space-y-1.5">
+        <label className="font-label text-xs font-semibold text-on-surface-variant ml-1">{t('campers.form.grade')}</label>
+        <div className="relative">
+          <select value={formData.grade} onChange={e => setFormData(p => ({ ...p, grade: e.target.value }))} className="w-full h-12 bg-surface-container-high border-none rounded-lg px-3 text-base text-primary font-medium focus:ring-2 focus:ring-secondary/20 appearance-none pr-10">
+            <option value="" disabled>{t('campers.form.gradePlaceholder')}</option>
+            <option value="1">{t('campers.form.gradeOptions.1')}</option>
+            <option value="2">{t('campers.form.gradeOptions.2')}</option>
+            <option value="3">{t('campers.form.gradeOptions.3')}</option>
+            <option value="4">{t('campers.form.gradeOptions.4')}</option>
+            <option value="5">{t('campers.form.gradeOptions.5')}</option>
+            <option value="6">{t('campers.form.gradeOptions.6')}</option>
+          </select>
+          <span className="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">expand_more</span>
         </div>
       </div>
       <div className="space-y-2">

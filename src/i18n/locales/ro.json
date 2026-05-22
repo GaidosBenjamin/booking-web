@@ -293,7 +293,7 @@
     "namePlaceholder": "Nume complet",
     "email": "Adresă de Email",
     "emailPlaceholder": "emailul@tau.com",
-    "donateWithStripe": "Donează Acum prin Stripe Checkout Securizat",
+    "donateWithStripe": "Donează Acum prin Stripe",
     "stripeSubtitle": "Tranzacție sigură și criptată",
     "disclaimer": "Tranzacție sigură, protejată și criptată.",
     "toasts": {

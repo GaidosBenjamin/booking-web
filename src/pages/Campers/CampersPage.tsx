@@ -109,7 +109,7 @@ export default function CampersPage() {
       </div>
       <div className="space-y-1.5">
         <label className="font-label text-xs font-semibold text-on-surface-variant ml-1">{t('campers.form.dateOfBirth')}</label>
-        <input type="date" value={formData.dateOfBirth} onChange={e => setFormData(p => ({ ...p, dateOfBirth: e.target.value }))} className="w-full min-w-0 h-12 bg-surface-container-high border-none rounded-lg px-3 text-base text-primary font-medium focus:ring-2 focus:ring-secondary/20" />
+        <input type="date" value={formData.dateOfBirth} onChange={e => setFormData(p => ({ ...p, dateOfBirth: e.target.value }))} className="w-full min-w-0 h-12 bg-surface-container-high border-none rounded-lg px-3 text-base text-primary font-medium focus:ring-2 focus:ring-secondary/20 appearance-none" />
       </div>
       <div className="space-y-1.5">
         <label className="font-label text-xs font-semibold text-on-surface-variant ml-1">{t('campers.form.grade')}</label>

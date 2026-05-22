@@ -293,7 +293,7 @@
     "namePlaceholder": "Full name",
     "email": "Email Address",
     "emailPlaceholder": "your@email.com",
-    "donateWithStripe": "Donate Now via Secure Stripe Checkout",
+    "donateWithStripe": "Donate Now via Stripe",
     "stripeSubtitle": "Secure and encrypted transaction",
     "disclaimer": "Safe, secure, and encrypted transaction.",
     "toasts": {

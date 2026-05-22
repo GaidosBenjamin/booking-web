@@ -8,7 +8,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ label, error, icon, showPasswordToggle, type, className = '', id, ...props }, ref) => {
+  ({ label, error, icon, showPasswordToggle, type, className = '', id, required, ...props }, ref) => {
     const [showPassword, setShowPassword] = useState(false);
     const inputId = id || label.toLowerCase().replace(/\s+/g, '-');
     const isPassword = type === 'password';
@@ -20,7 +20,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           htmlFor={inputId}
           className="block font-label text-sm font-semibold text-on-surface-variant ml-1"
         >
-          {label}
+          {label}{required && <span className="text-error ml-1">*</span>}
         </label>
         <div className="relative group">
           {icon && (
@@ -41,6 +41,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
               ${error ? 'ring-2 ring-error/30' : ''}
               ${className}
             `}
+            required={required}
             {...props}
           />
           {isPassword && showPasswordToggle && (

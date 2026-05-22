@@ -44,11 +44,13 @@ export default function RegisterPage() {
     } catch (err: unknown) {
       const error = err as { response?: { status?: number; data?: { message?: string; detail?: string } } };
       if (
-        error.response?.status === 409 || 
+        error.response?.status === 409 ||
         error.response?.data?.message?.includes('already') ||
         error.response?.data?.detail?.includes('already registered')
       ) {
         showToast(t('register.errors.emailExists'), 'error');
+      } else if (error.response?.data?.detail?.includes('only members')) {
+        showToast(t('register.errors.membersOnly'), 'error');
       } else {
         showToast(t('register.errors.generic'), 'error');
       }
@@ -90,14 +92,14 @@ export default function RegisterPage() {
         <div className="lg:col-span-7 bg-surface-container-low rounded-3xl p-8 md:p-12 h-fit">
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Input label={t('register.firstName')} placeholder={t('register.firstNamePlaceholder')} error={errors.firstName?.message} {...register('firstName')} />
-              <Input label={t('register.lastName')} placeholder={t('register.lastNamePlaceholder')} error={errors.lastName?.message} {...register('lastName')} />
+              <Input required label={t('register.firstName')} placeholder={t('register.firstNamePlaceholder')} error={errors.firstName?.message} {...register('firstName')} />
+              <Input required label={t('register.lastName')} placeholder={t('register.lastNamePlaceholder')} error={errors.lastName?.message} {...register('lastName')} />
             </div>
-            <Input label={t('register.email')} type="email" icon="mail" placeholder={t('register.emailPlaceholder')} error={errors.email?.message} {...register('email')} />
-            <Input label={t('register.phone')} type="tel" icon="phone" placeholder={t('register.phonePlaceholder')} error={errors.phone?.message} {...register('phone')} />
+            <Input required label={t('register.email')} type="email" icon="mail" placeholder={t('register.emailPlaceholder')} error={errors.email?.message} {...register('email')} />
+            <Input required label={t('register.phone')} type="tel" icon="phone" placeholder={t('register.phonePlaceholder')} error={errors.phone?.message} {...register('phone')} />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Input label={t('register.password')} type="password" icon="lock" placeholder={t('register.passwordPlaceholder')} showPasswordToggle error={errors.password?.message} {...register('password')} />
-              <Input label={t('register.confirmPassword')} type="password" icon="lock_reset" placeholder={t('register.confirmPasswordPlaceholder')} showPasswordToggle error={errors.confirmPassword?.message} {...register('confirmPassword')} />
+              <Input required label={t('register.password')} type="password" icon="lock" placeholder={t('register.passwordPlaceholder')} showPasswordToggle error={errors.password?.message} {...register('password')} />
+              <Input required label={t('register.confirmPassword')} type="password" icon="lock_reset" placeholder={t('register.confirmPasswordPlaceholder')} showPasswordToggle error={errors.confirmPassword?.message} {...register('confirmPassword')} />
             </div>
             <div className="pt-4">
               <Button type="submit" fullWidth loading={loading} icon="arrow_forward" className="h-16 text-lg">{t('register.createAccount')}</Button>

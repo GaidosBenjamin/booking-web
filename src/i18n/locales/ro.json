@@ -53,6 +53,7 @@
     "loginLink": "Conectează-te",
     "errors": {
       "emailExists": "Acest email este deja înregistrat. Vrei să te conectezi?",
+      "membersOnly": "Înregistrarea este disponibilă momentan doar pentru membri.",
       "generic": "Ceva a mers greșit. Te rugăm să încerci din nou.",
       "firstNameRequired": "Prenumele este obligatoriu",
       "lastNameRequired": "Numele de familie este obligatoriu",

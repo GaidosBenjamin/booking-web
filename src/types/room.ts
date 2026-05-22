@@ -2,6 +2,7 @@ export interface RoomOccupant {
   id: string;
   firstName: string;
   lastName: string;
+  isLeader?: boolean;
 }
 
 export interface RoomResponse {

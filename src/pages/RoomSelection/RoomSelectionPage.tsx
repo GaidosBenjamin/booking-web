@@ -142,10 +142,17 @@ export default function RoomSelectionPage() {
                       {occupants.length > 0 ? (
                         <div className="flex flex-wrap gap-2.5">
                           {occupants.map(o => (
-                            <div key={o.id} className={`flex items-center gap-2.5 px-3.5 py-2 rounded-full shadow-sm ${o.isHold ? 'bg-surface-container opacity-60 border border-dashed border-outline-variant/50 bg-[repeating-linear-gradient(45deg,transparent,transparent_4px,rgba(0,0,0,0.02)_4px,rgba(0,0,0,0.02)_8px)]' : 'bg-surface-container-low'}`}>
-                              <Avatar firstName={o.firstName} lastName={o.lastName} size="sm" />
-                              <span className="text-xs font-bold text-on-surface">{o.firstName} {o.lastName.charAt(0)}.</span>
-                            </div>
+                            o.isLeader ? (
+                              <div key={o.id} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20">
+                                <span className="material-symbols-outlined text-primary text-[13px]" style={{ fontVariationSettings: "'FILL' 1" }}>workspace_premium</span>
+                                <span className="text-xs font-bold text-primary">{t('roomSelection.leader')}</span>
+                              </div>
+                            ) : (
+                              <div key={o.id} className={`flex items-center gap-2.5 px-3.5 py-2 rounded-full shadow-sm ${o.isHold ? 'bg-surface-container opacity-60 border border-dashed border-outline-variant/50 bg-[repeating-linear-gradient(45deg,transparent,transparent_4px,rgba(0,0,0,0.02)_4px,rgba(0,0,0,0.02)_8px)]' : 'bg-surface-container-low'}`}>
+                                <Avatar firstName={o.firstName} lastName={o.lastName} size="sm" />
+                                <span className="text-xs font-bold text-on-surface">{o.firstName} {o.lastName.charAt(0)}.</span>
+                              </div>
+                            )
                           ))}
                         </div>
                       ) : (

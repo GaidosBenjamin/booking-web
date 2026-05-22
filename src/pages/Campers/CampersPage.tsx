@@ -100,19 +100,19 @@ export default function CampersPage() {
   const renderForm = (onSave: () => void, onRemove?: () => void) => (
     <div className="px-6 pb-8 pt-2 space-y-5">
       <div className="space-y-1.5">
-        <label className="font-label text-xs font-semibold text-on-surface-variant ml-1">{t('campers.form.firstName')}</label>
+        <label className="font-label text-xs font-semibold text-on-surface-variant ml-1">{t('campers.form.firstName')} <span className="text-error">*</span></label>
         <input value={formData.firstName} onChange={e => setFormData(p => ({ ...p, firstName: e.target.value }))} className="w-full h-12 bg-surface-container-high border-none rounded-lg px-3 text-base text-primary font-medium focus:ring-2 focus:ring-secondary/20" />
       </div>
       <div className="space-y-1.5">
-        <label className="font-label text-xs font-semibold text-on-surface-variant ml-1">{t('campers.form.lastName')}</label>
+        <label className="font-label text-xs font-semibold text-on-surface-variant ml-1">{t('campers.form.lastName')} <span className="text-error">*</span></label>
         <input value={formData.lastName} onChange={e => setFormData(p => ({ ...p, lastName: e.target.value }))} className="w-full h-12 bg-surface-container-high border-none rounded-lg px-3 text-base text-primary font-medium focus:ring-2 focus:ring-secondary/20" />
       </div>
       <div className="space-y-1.5">
-        <label className="font-label text-xs font-semibold text-on-surface-variant ml-1">{t('campers.form.dateOfBirth')}</label>
+        <label className="font-label text-xs font-semibold text-on-surface-variant ml-1">{t('campers.form.dateOfBirth')} <span className="text-error">*</span></label>
         <input type="date" value={formData.dateOfBirth} onChange={e => setFormData(p => ({ ...p, dateOfBirth: e.target.value }))} className="w-full min-w-0 h-12 bg-surface-container-high border-none rounded-lg px-3 text-base text-primary font-medium focus:ring-2 focus:ring-secondary/20 appearance-none" />
       </div>
       <div className="space-y-1.5">
-        <label className="font-label text-xs font-semibold text-on-surface-variant ml-1">{t('campers.form.grade')}</label>
+        <label className="font-label text-xs font-semibold text-on-surface-variant ml-1">{t('campers.form.grade')} <span className="text-error">*</span></label>
         <div className="relative">
           <select value={formData.grade} onChange={e => setFormData(p => ({ ...p, grade: e.target.value }))} className="w-full h-12 bg-surface-container-high border-none rounded-lg px-3 text-base text-primary font-medium focus:ring-2 focus:ring-secondary/20 appearance-none pr-10">
             <option value="" disabled>{t('campers.form.gradePlaceholder')}</option>

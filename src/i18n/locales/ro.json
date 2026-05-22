@@ -299,7 +299,8 @@
     "disclaimer": "Tranzacție sigură, protejată și criptată.",
     "toasts": {
       "createFailed": "Donația nu a putut fi creată. Te rugăm să încerci din nou.",
-      "nameEmailRequired": "Te rugăm să introduci numele și emailul pentru a continua."
+      "nameEmailRequired": "Te rugăm să introduci numele și emailul pentru a continua.",
+      "minAmount": "Suma minimă pentru donație este 2 RON."
     }
   },
   "donationSuccess": {

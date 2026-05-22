@@ -44,10 +44,15 @@ export default function DonationPage() {
   }, [currentUser]);
 
   const effectiveAmount = customAmount ? parseFloat(customAmount) : selectedAmount;
-  const canDonate = !!effectiveAmount && effectiveAmount > 0 && !!name.trim() && !!email.trim() && !isSubmitting;
+  const customAmountError = customAmount && parseFloat(customAmount) < 2 ? t('donation.toasts.minAmount') : null;
+  const canDonate = !!effectiveAmount && effectiveAmount >= 2 && !customAmountError && !!name.trim() && !!email.trim() && !isSubmitting;
 
   const handleDonate = async () => {
     if (!effectiveAmount) return;
+    if (effectiveAmount < 2) {
+      showToast(t('donation.toasts.minAmount'), 'error');
+      return;
+    }
     if (!name.trim() || !email.trim()) {
       showToast(t('donation.toasts.nameEmailRequired'), 'error');
       return;
@@ -170,6 +175,7 @@ export default function DonationPage() {
                 className="w-full h-14 bg-surface-container-high border-none rounded-xl pl-16 pr-4 text-base font-headline font-semibold text-primary focus:ring-2 focus:ring-secondary/50 placeholder:text-outline"
               />
             </div>
+            {customAmountError && <p className="text-error text-xs font-medium mt-1.5 ml-1">{customAmountError}</p>}
           </div>
 
           {/* Name */}

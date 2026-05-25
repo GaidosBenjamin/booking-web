@@ -51,6 +51,11 @@ export default function RegisterPage() {
         showToast(t('register.errors.emailExists'), 'error');
       } else if (error.response?.data?.detail?.includes('only members')) {
         showToast(t('register.errors.membersOnly'), 'error');
+      } else if (
+        error.response?.status === 503 ||
+        error.response?.data?.detail?.toLowerCase().includes('closed')
+      ) {
+        showToast(t('register.errors.registrationsClosed'), 'error');
       } else {
         showToast(t('register.errors.generic'), 'error');
       }

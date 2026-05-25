@@ -54,6 +54,7 @@
     "errors": {
       "emailExists": "Acest email este deja înregistrat. Vrei să te conectezi?",
       "membersOnly": "Înregistrarea este disponibilă momentan doar pentru membri.",
+      "registrationsClosed": "Înregistrările sunt momentan închise.",
       "generic": "Ceva a mers greșit. Te rugăm să încerci din nou.",
       "firstNameRequired": "Prenumele este obligatoriu",
       "lastNameRequired": "Numele de familie este obligatoriu",

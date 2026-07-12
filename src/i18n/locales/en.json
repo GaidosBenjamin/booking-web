@@ -134,22 +134,22 @@
     "form": {
       "firstName": "Child First Name",
       "lastName": "Child Last Name",
-      "dateOfBirth": "Date of Birth",
-      "grade": "Grade (Graduated)",
-      "gradePlaceholder": "Select Grade",
-      "gradeOptions": {
-        "1": "1st Grade",
-        "2": "2nd Grade",
-        "3": "3rd Grade",
-        "4": "4th Grade",
-        "5": "5th Grade",
-        "6": "6th Grade"
+      "grupMic": "Small group",
+      "grupMicPlaceholder": "Select group",
+      "grupMicOptions": {
+        "GM1": "GM1 - Alina Ghiuro",
+        "GM2": "GM2 - Mara Gaidos",
+        "GM3": "GM3 - Teodora Popa",
+        "GM4": "GM4 - Andreea Selin",
+        "GM5": "GM5 - Anna Koteles",
+        "GM6": "GM6 - Daiana Noge",
+        "GM7": "GM7 - Roberta Vaida",
+        "GM8": "GM8 - Mela Penyacsek",
+        "GM9": "GM9 - Rebeca Moraru"
       },
       "gender": "Gender",
       "boy": "Boy",
-      "girl": "Girl",
-      "specialRequirements": "Medication / Allergies / etc. (Optional)",
-      "specialRequirementsPlaceholder": "E.g.: Requires an inhaler after physical exercise, allergic to penicillin."
+      "girl": "Girl"
     },
     "room": {
       "pickRoom": "Pick Room",

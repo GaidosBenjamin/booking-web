@@ -35,17 +35,13 @@ export interface CamperResponse {
 export interface CreateCamperRequest {
   firstName: string;
   lastName: string;
-  dateOfBirth: string; // YYYY-MM-DD
   grade: string;
   gender: CamperGender;
-  specialRequirements?: string;
 }
 
 export interface UpdateCamperRequest {
   firstName?: string;
   lastName?: string;
-  dateOfBirth?: string;
   grade?: string;
   gender?: CamperGender;
-  specialRequirements?: string;
 }

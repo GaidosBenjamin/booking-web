@@ -134,22 +134,22 @@
     "form": {
       "firstName": "Prenume Copil",
       "lastName": "Nume de Familie Copil",
-      "dateOfBirth": "Data Nașterii",
-      "grade": "Clasă (Absolvită)",
-      "gradePlaceholder": "Selectează Clasa",
-      "gradeOptions": {
-        "1": "Clasa I",
-        "2": "Clasa a II-a",
-        "3": "Clasa a III-a",
-        "4": "Clasa a IV-a",
-        "5": "Clasa a V-a",
-        "6": "Clasa a VI-a"
+      "grupMic": "Grup mic",
+      "grupMicPlaceholder": "Selectează grupul",
+      "grupMicOptions": {
+        "GM1": "GM1 - Alina Ghiuro",
+        "GM2": "GM2 - Mara Gaidos",
+        "GM3": "GM3 - Teodora Popa",
+        "GM4": "GM4 - Andreea Selin",
+        "GM5": "GM5 - Anna Koteles",
+        "GM6": "GM6 - Daiana Noge",
+        "GM7": "GM7 - Roberta Vaida",
+        "GM8": "GM8 - Mela Penyacsek",
+        "GM9": "GM9 - Rebeca Moraru"
       },
       "gender": "Gen",
       "boy": "Băiat",
-      "girl": "Fată",
-      "specialRequirements": "Tratament Medicamentos / Alergii / etc. (Opțional)",
-      "specialRequirementsPlaceholder": "Ex: Necesită inhalator după efort fizic, alergie la penicilină."
+      "girl": "Fată"
     },
     "room": {
       "pickRoom": "Alege Camera",

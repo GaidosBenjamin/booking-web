@@ -51,6 +51,9 @@
     "createAccount": "Create Account",
     "alreadyHaveAccount": "Already have an account?",
     "loginLink": "Log in",
+    "toasts": {
+      "success": "Account created! Please log in."
+    },
     "errors": {
       "emailExists": "This email is already registered. Sign in instead?",
       "membersOnly": "Registration is currently only open to members.",

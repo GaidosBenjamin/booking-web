@@ -4,7 +4,8 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useTranslation } from 'react-i18next';
-import { register as apiRegister } from '../../api/auth';
+import { register as apiRegister, login as apiLogin } from '../../api/auth';
+import { useAuth } from '../../hooks/useAuth';
 import { useToast } from '../../components/ToastProvider';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
@@ -14,6 +15,7 @@ import LanguageSwitcher from '../../components/LanguageSwitcher';
 export default function RegisterPage() {
   const navigate = useNavigate();
   const { showToast } = useToast();
+  const { login } = useAuth();
   const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
   const orgSlug = import.meta.env.VITE_ORG_SLUG as string;
@@ -40,7 +42,14 @@ export default function RegisterPage() {
     setLoading(true);
     try {
       await apiRegister({ organizationSlug: orgSlug, email: data.email, password: data.password, firstName: data.firstName, lastName: data.lastName, phone: data.phone });
-      navigate('/verify-email', { state: { email: data.email, organizationSlug: orgSlug } });
+      try {
+        const response = await apiLogin({ organizationSlug: orgSlug, email: data.email, password: data.password });
+        login(response);
+        navigate('/campers');
+      } catch {
+        showToast(t('register.toasts.success'), 'success');
+        navigate('/login');
+      }
     } catch (err: unknown) {
       const error = err as { response?: { status?: number; data?: { message?: string; detail?: string } } };
       if (

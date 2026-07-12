@@ -51,6 +51,9 @@
     "createAccount": "Creează Cont",
     "alreadyHaveAccount": "Ai deja un cont?",
     "loginLink": "Conectează-te",
+    "toasts": {
+      "success": "Cont creat! Te rugăm să te conectezi."
+    },
     "errors": {
       "emailExists": "Acest email este deja înregistrat. Vrei să te conectezi?",
       "membersOnly": "Înregistrarea este disponibilă momentan doar pentru membri.",

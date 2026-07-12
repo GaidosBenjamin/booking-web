@@ -19,3 +19,8 @@ export async function getBooking(id: string): Promise<BookingResponse> {
 export async function cancelBooking(id: string): Promise<void> {
   await apiClient.post(`/api/bookings/${id}/cancel`);
 }
+
+export async function confirmBooking(id: string): Promise<BookingResponse> {
+  const response = await apiClient.post<BookingResponse>(`/api/bookings/${id}/confirm`);
+  return response.data;
+}

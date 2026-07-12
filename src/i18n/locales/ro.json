@@ -167,7 +167,7 @@
     }
   },
   "buildingSelection": {
-    "badge": "Selecție Clădire",
+    "badge": "Selecție Tip Activitate",
     "headline": "Alege cea mai bună experiență pentru {{name}}.",
     "selectingFor": "Selectare pentru {{name}}",
     "recommended": "Recomandat",
@@ -179,12 +179,12 @@
   "roomSelection": {
     "headline": "Alege Camera pentru {{name}}",
     "pickingFor": "Alege un Pat pentru {{name}}",
-    "available": "{{available}} din {{capacity}} paturi disponibile",
+    "available": "{{available}} din {{capacity}} locuri disponibile",
     "full": "Ocupat",
     "reservedFor": "Camera rezervată pentru",
     "leadersRoom": "Camera Liderilor",
     "leader": "Lider",
-    "roommates": "Colegi de Cameră",
+    "roommates": "Copii înscriși deja",
     "noRoommates": "Niciun coleg încă. Fii primul!",
     "selectButton": "Selectează Camera",
     "toasts": {
@@ -208,6 +208,10 @@
     "subtotal": "Subtotal",
     "memberDiscount": "Reducere Membru Aplicată",
     "grandTotal": "Total",
+    "free": "Gratuit",
+    "confirmation": "Confirmare",
+    "confirmBooking": "Confirmă rezervarea",
+    "confirmDisclaimer": "Rezervarea camerei va fi confirmată imediat.",
     "paymentMethod": "Metodă de Plată",
     "payWithStripe": "Plătește cu Stripe",
     "stripeSubtitle": "Portal de plată securizat și criptat",
@@ -216,7 +220,9 @@
     "toasts": {
       "createFailed": "Nu s-a putut crea rezervarea.",
       "cancelSuccess": "Rezervare anulată.",
-      "cancelFailed": "Nu s-a putut anula rezervarea."
+      "cancelFailed": "Nu s-a putut anula rezervarea.",
+      "confirmSuccess": "Rezervare confirmată!",
+      "confirmFailed": "Nu s-a putut confirma rezervarea."
     }
   },
   "bookingSuccess": {

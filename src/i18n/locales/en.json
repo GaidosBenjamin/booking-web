@@ -167,7 +167,7 @@
     }
   },
   "buildingSelection": {
-    "badge": "Building Selection",
+    "badge": "Activity Type Selection",
     "headline": "Choose the best camp experience for {{name}}.",
     "selectingFor": "Selecting for {{name}}",
     "recommended": "Recommended",
@@ -179,12 +179,12 @@
   "roomSelection": {
     "headline": "Choose {{name}}'s Cabin Room",
     "pickingFor": "Picking a Bed for {{name}}",
-    "available": "{{available}} of {{capacity}} beds available",
+    "available": "{{available}} of {{capacity}} spots available",
     "full": "Full",
     "reservedFor": "Room reserved for",
     "leadersRoom": "Leaders Room",
     "leader": "Leader",
-    "roommates": "Current Roommates",
+    "roommates": "Children already enrolled",
     "noRoommates": "No roommates yet. Be the first!",
     "selectButton": "Select Room",
     "toasts": {
@@ -208,6 +208,10 @@
     "subtotal": "Subtotal",
     "memberDiscount": "Member Discount Applied",
     "grandTotal": "Grand Total",
+    "free": "Free",
+    "confirmation": "Confirmation",
+    "confirmBooking": "Confirm booking",
+    "confirmDisclaimer": "Your room reservation will be confirmed immediately.",
     "paymentMethod": "Payment Method",
     "payWithStripe": "Pay with Stripe",
     "stripeSubtitle": "Secure, encrypted payment portal",
@@ -216,7 +220,9 @@
     "toasts": {
       "createFailed": "Failed to create booking.",
       "cancelSuccess": "Booking cancelled.",
-      "cancelFailed": "Failed to cancel booking."
+      "cancelFailed": "Failed to cancel booking.",
+      "confirmSuccess": "Booking confirmed!",
+      "confirmFailed": "Failed to confirm booking."
     }
   },
   "bookingSuccess": {

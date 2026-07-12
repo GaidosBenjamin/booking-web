@@ -121,16 +121,16 @@
     }
   },
   "campers": {
-    "title": "Camper Roster",
+    "title": "Participant List",
     "headline": "List all children attending.",
-    "subtitle": "Add individual details for each camper to ensure they get the best summer experience.",
+    "subtitle": "Add individual details for each participant to ensure they get the best experience.",
     "age": "Age {{age}}",
-    "newCamper": "New Camper",
-    "addAnother": "Add Another Camper",
-    "noCampers": "No campers yet.",
-    "addFirst": "Add Your First Camper",
+    "newCamper": "New Participant",
+    "addAnother": "Add Another Participant",
+    "noCampers": "No participants yet.",
+    "addFirst": "Add Your First Participant",
     "proceedCheckout": "Proceed to Checkout",
-    "selectRoomFirst": "Select a room for all campers first.",
+    "selectRoomFirst": "Select an activity for all participants first.",
     "form": {
       "firstName": "Child First Name",
       "lastName": "Child Last Name",
@@ -152,26 +152,26 @@
       "girl": "Girl"
     },
     "room": {
-      "pickRoom": "Pick Room",
-      "noRoom": "No room selected yet",
-      "noRoomsAvailable": "No rooms available for age/gender",
-      "changeRoom": "Change Room",
-      "confirmed": "Room Confirmed",
+      "pickRoom": "Choose Activity",
+      "noRoom": "No activity selected yet",
+      "noRoomsAvailable": "No activities available for gender",
+      "changeRoom": "Change Activity",
+      "confirmed": "Activity Confirmed",
       "reservedFor": "Reserved For"
     },
     "toasts": {
-      "added": "Camper added!",
-      "addFailed": "Failed to add camper.",
-      "updated": "Camper updated!",
-      "updateFailed": "Failed to update camper.",
-      "removed": "Camper removed.",
-      "removeFailed": "Failed to remove camper.",
+      "added": "Participant added!",
+      "addFailed": "Failed to add participant.",
+      "updated": "Participant updated!",
+      "updateFailed": "Failed to update participant.",
+      "removed": "Participant removed.",
+      "removeFailed": "Failed to remove participant.",
       "fillRequired": "Please fill in all required fields."
     }
   },
   "buildingSelection": {
     "badge": "Activity Type Selection",
-    "headline": "Choose the best camp experience for {{name}}.",
+    "headline": "Choose the best activity for {{name}}.",
     "selectingFor": "Selecting for {{name}}",
     "recommended": "Recommended",
     "memberRate": "Member Discount",
@@ -180,23 +180,23 @@
     "continueButton": "Continue"
   },
   "roomSelection": {
-    "headline": "Choose {{name}}'s Cabin Room",
-    "pickingFor": "Picking a Bed for {{name}}",
+    "headline": "Choose an Activity for {{name}}",
+    "pickingFor": "Choosing an Activity for {{name}}",
     "available": "{{available}} of {{capacity}} spots available",
     "full": "Full",
-    "reservedFor": "Room reserved for",
-    "leadersRoom": "Leaders Room",
+    "reservedFor": "Activity reserved for",
+    "leadersRoom": "Leaders Only",
     "leader": "Leader",
     "roommates": "Children already enrolled",
-    "noRoommates": "No roommates yet. Be the first!",
-    "selectButton": "Select Room",
+    "noRoommates": "No children enrolled yet. Be the first!",
+    "selectButton": "Select Activity",
     "toasts": {
-      "selected": "Room selected!",
-      "failed": "Failed to hold room. Please try again."
+      "selected": "Activity selected!",
+      "failed": "Failed to reserve activity. Please try again."
     },
     "quotes": [
-      "Rooms are assigned by availability.",
-      "Your camper will love their bunkmates!",
+      "Activities are assigned by availability.",
+      "Your child will enjoy this creative experience!",
       "First come, first served."
     ]
   },
@@ -204,9 +204,9 @@
     "title": "Review Booking",
     "expired": "Your reservation has expired. Please start over.",
     "familySummary": "Family Summary",
-    "camperCount_one": "{{count}} Camper",
-    "camperCount_other": "{{count}} Campers",
-    "roomAssigned": "Room assigned",
+    "camperCount_one": "{{count}} Participant",
+    "camperCount_other": "{{count}} Participants",
+    "roomAssigned": "Activity assigned",
     "reservedFor": "Reserved For",
     "subtotal": "Subtotal",
     "memberDiscount": "Member Discount Applied",
@@ -214,7 +214,7 @@
     "free": "Free",
     "confirmation": "Confirmation",
     "confirmBooking": "Confirm booking",
-    "confirmDisclaimer": "Your room reservation will be confirmed immediately.",
+    "confirmDisclaimer": "Your activity registration will be confirmed immediately.",
     "paymentMethod": "Payment Method",
     "payWithStripe": "Pay with Stripe",
     "stripeSubtitle": "Secure, encrypted payment portal",
@@ -230,11 +230,11 @@
   },
   "bookingSuccess": {
     "title": "Booking Confirmed!",
-    "subtitle": "Your camper is all set for an unforgettable summer at BBSO Kids Camp.",
+    "subtitle": "Your participant is all set for an unforgettable experience at BBSO Kids Camp.",
     "orderId": "Order ID",
     "totalPaid": "Total Paid",
     "emailConfirmation": "A confirmation email has been sent to {{email}}.",
-    "viewRoster": "View My Roster",
+    "viewRoster": "View My List",
     "backHome": "Back to Home"
   },
   "bookingFailed": {
@@ -244,13 +244,13 @@
     "reasonBody": "Please check your card details, ensure sufficient funds, or try a different payment method.",
     "tryAgain": "Try Again",
     "contactSupport": "Contact Support",
-    "backToCampers": "Back to Roster",
+    "backToCampers": "Back to List",
     "toasts": {
       "retryFailed": "Failed to retry. Please try again."
     }
   },
   "status": {
-    "NEEDS_BED": "Needs Bed",
+    "NEEDS_BED": "Needs Activity",
     "NEEDS_PAYMENT": "Needs Payment",
     "PAYMENT_SUCCESS": "Confirmed",
     "PAYMENT_FAILED": "Payment Failed"
@@ -259,7 +259,7 @@
     "title": "Privacy Policy",
     "lastUpdated": "Last updated: {{date}}",
     "section1Title": "1. Information We Collect",
-    "section1Body": "We collect information that you provide directly to us when booking a camp spot, including names, contact information, and special requirements for campers.",
+    "section1Body": "We collect information that you provide directly to us when registering for activities, including names and contact information for participants.",
     "section2Title": "2. How We Use Information",
     "section2Body": "We use the information we collect to provide, maintain, and improve our services, to process transactions, and to communicate with you about your booking.",
     "section3Title": "3. Information Sharing",

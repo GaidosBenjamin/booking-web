@@ -123,14 +123,14 @@
   "campers": {
     "title": "Lista Participanților",
     "headline": "Listează toți copiii care participă.",
-    "subtitle": "Adaugă detalii individuale pentru fiecare participant pentru a le asigura cea mai bună experiență de vară.",
+    "subtitle": "Adaugă detalii individuale pentru fiecare participant pentru a le asigura cea mai bună experiență.",
     "age": "Vârsta {{age}}",
     "newCamper": "Participant Nou",
     "addAnother": "Adaugă Alt Participant",
     "noCampers": "Niciun participant încă.",
     "addFirst": "Adaugă Primul Participant",
     "proceedCheckout": "Continuă la Plată",
-    "selectRoomFirst": "Selectează mai întâi un loc pentru toți participanții.",
+    "selectRoomFirst": "Selectează mai întâi o activitate pentru toți participanții.",
     "form": {
       "firstName": "Prenume Copil",
       "lastName": "Nume de Familie Copil",
@@ -152,11 +152,11 @@
       "girl": "Fată"
     },
     "room": {
-      "pickRoom": "Alege Camera",
-      "noRoom": "Nicio cameră selectată",
-      "noRoomsAvailable": "Nicio cameră disponibilă pentru vârstă/gen",
-      "changeRoom": "Schimbă Camera",
-      "confirmed": "Cameră Confirmată",
+      "pickRoom": "Alege Activitate",
+      "noRoom": "Nicio activitate selectată",
+      "noRoomsAvailable": "Nicio activitate disponibilă pentru gen",
+      "changeRoom": "Schimbă Activitatea",
+      "confirmed": "Activitate Confirmată",
       "reservedFor": "Rezervat Pentru"
     },
     "toasts": {
@@ -171,7 +171,7 @@
   },
   "buildingSelection": {
     "badge": "Selecție Tip Activitate",
-    "headline": "Alege cea mai bună experiență pentru {{name}}.",
+    "headline": "Alege cea mai bună activitate pentru {{name}}.",
     "selectingFor": "Selectare pentru {{name}}",
     "recommended": "Recomandat",
     "memberRate": "Reducere Membru",
@@ -180,23 +180,23 @@
     "continueButton": "Continuă"
   },
   "roomSelection": {
-    "headline": "Alege Camera pentru {{name}}",
-    "pickingFor": "Alege un Pat pentru {{name}}",
+    "headline": "Alege o Activitate pentru {{name}}",
+    "pickingFor": "Alegere Activitate pentru {{name}}",
     "available": "{{available}} din {{capacity}} locuri disponibile",
     "full": "Ocupat",
-    "reservedFor": "Camera rezervată pentru",
-    "leadersRoom": "Camera Liderilor",
+    "reservedFor": "Activitate rezervată pentru",
+    "leadersRoom": "Doar pentru Lideri",
     "leader": "Lider",
     "roommates": "Copii înscriși deja",
-    "noRoommates": "Niciun coleg încă. Fii primul!",
-    "selectButton": "Selectează Camera",
+    "noRoommates": "Niciun copil înscris încă. Fii primul!",
+    "selectButton": "Selectează Activitatea",
     "toasts": {
-      "selected": "Camera selectată!",
-      "failed": "Nu s-a putut rezerva camera. Te rugăm să încerci din nou."
+      "selected": "Activitate selectată!",
+      "failed": "Nu s-a putut rezerva activitatea. Te rugăm să încerci din nou."
     },
     "quotes": [
-      "Camerele sunt alocate în funcție de disponibilitate.",
-      "Copilul tău își va iubi colegii de cameră!",
+      "Activitățile sunt alocate în funcție de disponibilitate.",
+      "Copilul tău se va bucura de această experiență creativă!",
       "Primul venit, primul servit."
     ]
   },
@@ -206,7 +206,7 @@
     "familySummary": "Rezumat Familie",
     "camperCount_one": "{{count}} Participant",
     "camperCount_other": "{{count}} Participanți",
-    "roomAssigned": "Cameră atribuită",
+    "roomAssigned": "Activitate atribuită",
     "reservedFor": "Rezervat Pentru",
     "subtotal": "Subtotal",
     "memberDiscount": "Reducere Membru Aplicată",
@@ -214,7 +214,7 @@
     "free": "Gratuit",
     "confirmation": "Confirmare",
     "confirmBooking": "Confirmă rezervarea",
-    "confirmDisclaimer": "Rezervarea camerei va fi confirmată imediat.",
+    "confirmDisclaimer": "Înscrierea la activitate va fi confirmată imediat.",
     "paymentMethod": "Metodă de Plată",
     "payWithStripe": "Plătește cu Stripe",
     "stripeSubtitle": "Portal de plată securizat și criptat",
@@ -230,7 +230,7 @@
   },
   "bookingSuccess": {
     "title": "Rezervare Confirmată!",
-    "subtitle": "Participantul tău este pregătit pentru o vară de neuitat la BBSO Kids Camp.",
+    "subtitle": "Participantul tău este pregătit pentru o experiență de neuitat la BBSO Kids Camp.",
     "orderId": "ID Comandă",
     "totalPaid": "Total Plătit",
     "emailConfirmation": "Un email de confirmare a fost trimis la {{email}}.",
@@ -250,7 +250,7 @@
     }
   },
   "status": {
-    "NEEDS_BED": "Necesită Pat",
+    "NEEDS_BED": "Necesită Activitate",
     "NEEDS_PAYMENT": "Necesită Plată",
     "PAYMENT_SUCCESS": "Confirmat",
     "PAYMENT_FAILED": "Plată Eșuată"
@@ -259,7 +259,7 @@
     "title": "Politică de Confidențialitate",
     "lastUpdated": "Ultima actualizare: {{date}}",
     "section1Title": "1. Informațiile pe Care le Colectăm",
-    "section1Body": "Colectăm informațiile pe care ni le furnizați direct atunci când rezervați un loc la tabără, inclusiv nume, informații de contact și cerințe speciale pentru participanți.",
+    "section1Body": "Colectăm informațiile pe care ni le furnizați direct atunci când vă înscrieți la activități, inclusiv nume și informații de contact pentru participanți.",
     "section2Title": "2. Cum Folosim Informațiile",
     "section2Body": "Folosim informațiile colectate pentru a furniza, menține și îmbunătăți serviciile noastre, pentru a procesa tranzacțiile și pentru a comunica cu dumneavoastră despre rezervarea dvs.",
     "section3Title": "3. Partajarea Informațiilor",
